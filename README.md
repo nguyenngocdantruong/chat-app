@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ChatApp Build
 1. Dowload thu vien:
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
@@ -18,3 +19,6 @@ dotnet add package MailKit
 
 
 
+=======
+# chat-app
+>>>>>>> c4593634a2fd39046752d728ef76b0fdbbeb4684
