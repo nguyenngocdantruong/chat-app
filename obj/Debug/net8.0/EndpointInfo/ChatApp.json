@@ -1,0 +1,23 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "ChatApp API",
+    "description": "Backend API for Flutter Chat App",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Test/ping": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": { }
+}
