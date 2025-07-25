@@ -1,78 +1,86 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\ChatApp\\",
+  "WorkspaceRootPath": "D:\\ProjectsWorking\\chat-app\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\application\\dtos\\request\\userrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:application\\dtos\\request\\userrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\application\\mapper\\usermapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:application\\mapper\\usermapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\application\\interfaces\\idtomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:application\\interfaces\\idtomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\infrastructure\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:infrastructure\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\services\\interfaces\\igenericservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:services\\interfaces\\igenericservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\infrastructure\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:infrastructure\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\services\\implementations\\genericservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:services\\implementations\\genericservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\repo\\implementations\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:repo\\implementations\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\interfaces\\ifriendrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\interfaces\\ifriendrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\repo\\implementations\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:repo\\implementations\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\interfaces\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\interfaces\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\repo\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:repo\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\interfaces\\iotprequestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\interfaces\\iotprequestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\repo\\interfaces\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:repo\\interfaces\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\entities\\otprequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\entities\\otprequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\interfaces\\imessagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\interfaces\\imessagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\entities\\messagestatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\entities\\messagestatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\entities\\conversationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\entities\\conversationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\chatapp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:chatapp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\entities\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\entities\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\chatapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:chatapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\interfaces\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\interfaces\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\ChatApp\\Models\\AppDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\AppDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\interfaces\\iconversationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\interfaces\\iconversationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -82,240 +90,270 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GenericService.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Services\\Implementations\\GenericService.cs",
-              "RelativeDocumentMoniker": "Services\\Implementations\\GenericService.cs",
-              "ToolTip": "D:\\ChatApp\\Services\\Implementations\\GenericService.cs",
-              "RelativeToolTip": "Services\\Implementations\\GenericService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:55:44.814Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Services\\Implementations\\UserService.cs",
-              "RelativeDocumentMoniker": "Services\\Implementations\\UserService.cs",
-              "ToolTip": "D:\\ChatApp\\Services\\Implementations\\UserService.cs",
-              "RelativeToolTip": "Services\\Implementations\\UserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:56:37.34Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IGenericService.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Services\\Interfaces\\IGenericService.cs",
-              "RelativeDocumentMoniker": "Services\\Interfaces\\IGenericService.cs",
-              "ToolTip": "D:\\ChatApp\\Services\\Interfaces\\IGenericService.cs",
-              "RelativeToolTip": "Services\\Interfaces\\IGenericService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:54:54.471Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IUserService.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Services\\Interfaces\\IUserService.cs",
-              "RelativeDocumentMoniker": "Services\\Interfaces\\IUserService.cs",
-              "ToolTip": "D:\\ChatApp\\Services\\Interfaces\\IUserService.cs",
-              "RelativeToolTip": "Services\\Interfaces\\IUserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:56:10.256Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\ChatApp\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAgwCsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:15:31.135Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Repo\\Implementations\\UserRepository.cs",
-              "RelativeDocumentMoniker": "Repo\\Implementations\\UserRepository.cs",
-              "ToolTip": "D:\\ChatApp\\Repo\\Implementations\\UserRepository.cs",
-              "RelativeToolTip": "Repo\\Implementations\\UserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:50:31.551Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
-              "ToolTip": "D:\\ChatApp\\Controllers\\UserController.cs",
-              "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\User.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Entities\\User.cs",
+              "RelativeToolTip": "Domain\\Entities\\User.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAA7wEAAAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:58:11.105Z",
+              "WhenOpened": "2025-07-25T04:28:33.691Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TestController.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Controllers\\TestController.cs",
-              "RelativeDocumentMoniker": "Controllers\\TestController.cs",
-              "ToolTip": "D:\\ChatApp\\Controllers\\TestController.cs",
-              "RelativeToolTip": "Controllers\\TestController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAmwBIAAAAZAAAAAAAAAA==",
+              "Title": "UserRequestDto.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Application\\DTOs\\Request\\UserRequestDto.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\Request\\UserRequestDto.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Application\\DTOs\\Request\\UserRequestDto.cs",
+              "RelativeToolTip": "Application\\DTOs\\Request\\UserRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:39:04.016Z",
+              "WhenOpened": "2025-07-25T04:27:44.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserMapper.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Application\\Mapper\\UserMapper.cs",
+              "RelativeDocumentMoniker": "Application\\Mapper\\UserMapper.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Application\\Mapper\\UserMapper.cs",
+              "RelativeToolTip": "Application\\Mapper\\UserMapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T04:26:57.416Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IDtoMapper.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Application\\Interfaces\\IDtoMapper.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\IDtoMapper.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Application\\Interfaces\\IDtoMapper.cs",
+              "RelativeToolTip": "Application\\Interfaces\\IDtoMapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T04:20:09.683Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABkAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T04:07:42.342Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Infrastructure\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\DependencyInjection.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Infrastructure\\DependencyInjection.cs",
+              "RelativeToolTip": "Infrastructure\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T04:07:28.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Infrastructure\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Data\\AppDbContext.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Infrastructure\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Infrastructure\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAALkAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T04:05:52.745Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "GenericRepository.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Repo\\Implementations\\GenericRepository.cs",
-              "RelativeDocumentMoniker": "Repo\\Implementations\\GenericRepository.cs",
-              "ToolTip": "D:\\ChatApp\\Repo\\Implementations\\GenericRepository.cs",
-              "RelativeToolTip": "Repo\\Implementations\\GenericRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAjAAAAAAAAAA==",
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\UserRepository.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:48:22.389Z",
+              "WhenOpened": "2025-07-25T04:04:50.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GenericRepository.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Infrastructure\\Repositories\\GenericRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\GenericRepository.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Infrastructure\\Repositories\\GenericRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\GenericRepository.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAIwAwAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T04:04:40.134Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "IUserRepository.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Repo\\Interfaces\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "Repo\\Interfaces\\IUserRepository.cs",
-              "ToolTip": "D:\\ChatApp\\Repo\\Interfaces\\IUserRepository.cs",
-              "RelativeToolTip": "Repo\\Interfaces\\IUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Interfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "Domain\\Interfaces\\IUserRepository.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Interfaces\\IUserRepository.cs",
+              "RelativeToolTip": "Domain\\Interfaces\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:50:03.169Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "IGenericRepository.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Repo\\Interfaces\\IGenericRepository.cs",
-              "RelativeDocumentMoniker": "Repo\\Interfaces\\IGenericRepository.cs",
-              "ToolTip": "D:\\ChatApp\\Repo\\Interfaces\\IGenericRepository.cs",
-              "RelativeToolTip": "Repo\\Interfaces\\IGenericRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:47:57.5Z",
+              "WhenOpened": "2025-07-25T03:54:45.346Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\ChatApp\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "D:\\ChatApp\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAACDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-15T06:16:32.317Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ChatApp.http",
-              "DocumentMoniker": "D:\\ChatApp\\ChatApp.http",
-              "RelativeDocumentMoniker": "ChatApp.http",
-              "ToolTip": "D:\\ChatApp\\ChatApp.http",
-              "RelativeToolTip": "ChatApp.http",
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Interfaces\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "Domain\\Interfaces\\IUnitOfWork.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Interfaces\\IUnitOfWork.cs",
+              "RelativeToolTip": "Domain\\Interfaces\\IUnitOfWork.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-07-15T06:35:31.834Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T03:54:44.754Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "README.md",
-              "DocumentMoniker": "D:\\ChatApp\\README.md",
-              "RelativeDocumentMoniker": "README.md",
-              "ToolTip": "D:\\ChatApp\\README.md",
-              "RelativeToolTip": "README.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-07-15T06:32:22.242Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Models\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Models\\AppDbContext.cs",
-              "ToolTip": "D:\\ChatApp\\Models\\AppDbContext.cs",
-              "RelativeToolTip": "Models\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "OtpRequest.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Entities\\OtpRequest.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\OtpRequest.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Entities\\OtpRequest.cs",
+              "RelativeToolTip": "Domain\\Entities\\OtpRequest.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:31:35.185Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ChatApp",
-              "DocumentMoniker": "D:\\ChatApp\\ChatApp.csproj",
-              "RelativeDocumentMoniker": "ChatApp.csproj",
-              "ToolTip": "D:\\ChatApp\\ChatApp.csproj",
-              "RelativeToolTip": "ChatApp.csproj",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-15T06:19:06.252Z",
+              "WhenOpened": "2025-07-25T03:50:22.887Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "WeatherForecastController.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Controllers\\WeatherForecastController.cs",
-              "RelativeDocumentMoniker": "Controllers\\WeatherForecastController.cs",
-              "ToolTip": "D:\\ChatApp\\Controllers\\WeatherForecastController.cs",
-              "RelativeToolTip": "Controllers\\WeatherForecastController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "IOtpRequestRepository.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Interfaces\\IOtpRequestRepository.cs",
+              "RelativeDocumentMoniker": "Domain\\Interfaces\\IOtpRequestRepository.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Interfaces\\IOtpRequestRepository.cs",
+              "RelativeToolTip": "Domain\\Interfaces\\IOtpRequestRepository.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAoAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:37:41.697Z",
+              "WhenOpened": "2025-07-25T03:49:05.409Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IFriendRepository.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Interfaces\\IFriendRepository.cs",
+              "RelativeDocumentMoniker": "Domain\\Interfaces\\IFriendRepository.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Interfaces\\IFriendRepository.cs",
+              "RelativeToolTip": "Domain\\Interfaces\\IFriendRepository.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T03:49:03.22Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "MessageStatus.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Entities\\MessageStatus.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\MessageStatus.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Entities\\MessageStatus.cs",
+              "RelativeToolTip": "Domain\\Entities\\MessageStatus.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA5wBcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T03:45:51.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ConversationStatus.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Entities\\ConversationStatus.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\ConversationStatus.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Entities\\ConversationStatus.cs",
+              "RelativeToolTip": "Domain\\Entities\\ConversationStatus.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T03:45:44.703Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "WeatherForecast.cs",
-              "DocumentMoniker": "D:\\ChatApp\\WeatherForecast.cs",
-              "RelativeDocumentMoniker": "WeatherForecast.cs",
-              "ToolTip": "D:\\ChatApp\\WeatherForecast.cs",
-              "RelativeToolTip": "WeatherForecast.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Message.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Entities\\Message.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Message.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Entities\\Message.cs",
+              "RelativeToolTip": "Domain\\Entities\\Message.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA5wBMAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:16:30.318Z",
+              "WhenOpened": "2025-07-25T03:42:59.812Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IConversationRepository.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Interfaces\\IConversationRepository.cs",
+              "RelativeDocumentMoniker": "Domain\\Interfaces\\IConversationRepository.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Interfaces\\IConversationRepository.cs",
+              "RelativeToolTip": "Domain\\Interfaces\\IConversationRepository.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAQwA0AAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T03:41:00.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IGenericRepository.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Interfaces\\IGenericRepository.cs",
+              "RelativeDocumentMoniker": "Domain\\Interfaces\\IGenericRepository.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Interfaces\\IGenericRepository.cs",
+              "RelativeToolTip": "Domain\\Interfaces\\IGenericRepository.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAwAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T03:37:24.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IMessageRepository.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Interfaces\\IMessageRepository.cs",
+              "RelativeDocumentMoniker": "Domain\\Interfaces\\IMessageRepository.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Interfaces\\IMessageRepository.cs",
+              "RelativeToolTip": "Domain\\Interfaces\\IMessageRepository.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAuwAcAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T03:36:00.297Z",
               "EditorCaption": ""
             }
           ]

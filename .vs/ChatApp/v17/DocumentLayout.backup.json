@@ -1,78 +1,90 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\ChatApp\\",
+  "WorkspaceRootPath": "D:\\ProjectsWorking\\chat-app\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\validate\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\validate\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\validate\\conflictexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\validate\\conflictexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\validate\\validationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\validate\\validationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\validate\\badrequestexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\validate\\badrequestexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\services\\interfaces\\igenericservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:services\\interfaces\\igenericservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\server\\databaseoperationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\server\\databaseoperationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\server\\serviceunavailableexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\server\\serviceunavailableexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\services\\implementations\\genericservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:services\\implementations\\genericservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\server\\ratelimitexceededexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\server\\ratelimitexceededexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\repo\\implementations\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:repo\\implementations\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\fileupload\\fileuploadfailedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\fileupload\\fileuploadfailedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\repo\\implementations\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:repo\\implementations\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\fileupload\\storagelimitexceededexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\fileupload\\storagelimitexceededexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\repo\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:repo\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\fileupload\\invalidfiletypeexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\fileupload\\invalidfiletypeexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\repo\\interfaces\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:repo\\interfaces\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\fileupload\\filetoolargeexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\fileupload\\filetoolargeexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\conversation\\messagesendfailedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\conversation\\messagesendfailedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\conversation\\messagetypenotsupportedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\conversation\\messagetypenotsupportedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\conversation\\usernotinconversationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\conversation\\usernotinconversationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\chatapp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:chatapp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\conversation\\messagenotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\conversation\\messagenotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\chatapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:chatapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\conversation\\conversationnotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\conversation\\conversationnotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\ChatApp\\Models\\AppDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\AppDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\friend\\blockeduserexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\friend\\blockeduserexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\chatapp\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\friend\\cannotaddyourselfexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\friend\\cannotaddyourselfexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\friend\\friendrequestnotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\friend\\friendrequestnotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\friend\\friendrequestalreadysentexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\friend\\friendrequestalreadysentexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|d:\\projectsworking\\chat-app\\domain\\exceptions\\friend\\friendalreadyexistsexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C80C5D9-3823-439B-91E3-ECC60E738EE1}|ChatApp.csproj|solutionrelative:domain\\exceptions\\friend\\friendalreadyexistsexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -82,241 +94,282 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GenericService.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Services\\Implementations\\GenericService.cs",
-              "RelativeDocumentMoniker": "Services\\Implementations\\GenericService.cs",
-              "ToolTip": "D:\\ChatApp\\Services\\Implementations\\GenericService.cs",
-              "RelativeToolTip": "Services\\Implementations\\GenericService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:55:44.814Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Services\\Implementations\\UserService.cs",
-              "RelativeDocumentMoniker": "Services\\Implementations\\UserService.cs",
-              "ToolTip": "D:\\ChatApp\\Services\\Implementations\\UserService.cs",
-              "RelativeToolTip": "Services\\Implementations\\UserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "NotFoundException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Validate\\NotFoundException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\Validate\\NotFoundException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Validate\\NotFoundException.cs",
+              "RelativeToolTip": "Domain\\Exceptions\\Validate\\NotFoundException.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAAgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:56:37.34Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IGenericService.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Services\\Interfaces\\IGenericService.cs",
-              "RelativeDocumentMoniker": "Services\\Interfaces\\IGenericService.cs",
-              "ToolTip": "D:\\ChatApp\\Services\\Interfaces\\IGenericService.cs",
-              "RelativeToolTip": "Services\\Interfaces\\IGenericService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:54:54.471Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IUserService.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Services\\Interfaces\\IUserService.cs",
-              "RelativeDocumentMoniker": "Services\\Interfaces\\IUserService.cs",
-              "ToolTip": "D:\\ChatApp\\Services\\Interfaces\\IUserService.cs",
-              "RelativeToolTip": "Services\\Interfaces\\IUserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:56:10.256Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\ChatApp\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAgwCsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:15:31.135Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Repo\\Implementations\\UserRepository.cs",
-              "RelativeDocumentMoniker": "Repo\\Implementations\\UserRepository.cs",
-              "ToolTip": "D:\\ChatApp\\Repo\\Implementations\\UserRepository.cs",
-              "RelativeToolTip": "Repo\\Implementations\\UserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:50:31.551Z",
+              "WhenOpened": "2025-07-25T03:20:42.744Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
-              "ToolTip": "D:\\ChatApp\\Controllers\\UserController.cs",
-              "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Title": "ConflictException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Validate\\ConflictException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\Validate\\ConflictException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Validate\\ConflictException.cs*",
+              "RelativeToolTip": "Domain\\Exceptions\\Validate\\ConflictException.cs*",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:58:11.105Z",
+              "WhenOpened": "2025-07-25T03:20:16.027Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TestController.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Controllers\\TestController.cs",
-              "RelativeDocumentMoniker": "Controllers\\TestController.cs",
-              "ToolTip": "D:\\ChatApp\\Controllers\\TestController.cs",
-              "RelativeToolTip": "Controllers\\TestController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAmwBMAAAAjAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "ValidationException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Validate\\ValidationException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\Validate\\ValidationException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Validate\\ValidationException.cs",
+              "RelativeToolTip": "Domain\\Exceptions\\Validate\\ValidationException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:39:04.016Z",
+              "WhenOpened": "2025-07-25T03:18:21.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BadRequestException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Validate\\BadRequestException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\Validate\\BadRequestException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Validate\\BadRequestException.cs",
+              "RelativeToolTip": "Domain\\Exceptions\\Validate\\BadRequestException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T03:17:48.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DatabaseOperationException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Server\\DatabaseOperationException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\Server\\DatabaseOperationException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Server\\DatabaseOperationException.cs",
+              "RelativeToolTip": "Domain\\Exceptions\\Server\\DatabaseOperationException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T03:16:19.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ServiceUnavailableException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Server\\ServiceUnavailableException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\Server\\ServiceUnavailableException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Server\\ServiceUnavailableException.cs",
+              "RelativeToolTip": "Domain\\Exceptions\\Server\\ServiceUnavailableException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T03:15:43.076Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RateLimitExceededException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Server\\RateLimitExceededException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\Server\\RateLimitExceededException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Server\\RateLimitExceededException.cs",
+              "RelativeToolTip": "Domain\\Exceptions\\Server\\RateLimitExceededException.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T03:14:41.153Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "GenericRepository.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Repo\\Implementations\\GenericRepository.cs",
-              "RelativeDocumentMoniker": "Repo\\Implementations\\GenericRepository.cs",
-              "ToolTip": "D:\\ChatApp\\Repo\\Implementations\\GenericRepository.cs",
-              "RelativeToolTip": "Repo\\Implementations\\GenericRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAjAAAAAAAAAA==",
+              "Title": "FileUploadFailedException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\FileUpload\\FileUploadFailedException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\FileUpload\\FileUploadFailedException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\FileUpload\\FileUploadFailedException.cs",
+              "RelativeToolTip": "Domain\\Exceptions\\FileUpload\\FileUploadFailedException.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:48:22.389Z",
+              "WhenOpened": "2025-07-25T03:14:04.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "StorageLimitExceededException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\FileUpload\\StorageLimitExceededException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\FileUpload\\StorageLimitExceededException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\FileUpload\\StorageLimitExceededException.cs",
+              "RelativeToolTip": "Domain\\Exceptions\\FileUpload\\StorageLimitExceededException.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T03:13:14.937Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Repo\\Interfaces\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "Repo\\Interfaces\\IUserRepository.cs",
-              "ToolTip": "D:\\ChatApp\\Repo\\Interfaces\\IUserRepository.cs",
-              "RelativeToolTip": "Repo\\Interfaces\\IUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Title": "InvalidFileTypeException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\FileUpload\\InvalidFileTypeException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\FileUpload\\InvalidFileTypeException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\FileUpload\\InvalidFileTypeException.cs",
+              "RelativeToolTip": "Domain\\Exceptions\\FileUpload\\InvalidFileTypeException.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:50:03.169Z",
+              "WhenOpened": "2025-07-25T03:12:48.657Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "IGenericRepository.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Repo\\Interfaces\\IGenericRepository.cs",
-              "RelativeDocumentMoniker": "Repo\\Interfaces\\IGenericRepository.cs",
-              "ToolTip": "D:\\ChatApp\\Repo\\Interfaces\\IGenericRepository.cs",
-              "RelativeToolTip": "Repo\\Interfaces\\IGenericRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Title": "FileTooLargeException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\FileUpload\\FileTooLargeException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\FileUpload\\FileTooLargeException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\FileUpload\\FileTooLargeException.cs",
+              "RelativeToolTip": "Domain\\Exceptions\\FileUpload\\FileTooLargeException.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:47:57.5Z",
+              "WhenOpened": "2025-07-25T03:12:21.579Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\ChatApp\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "D:\\ChatApp\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAACDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-15T06:16:32.317Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ChatApp.http",
-              "DocumentMoniker": "D:\\ChatApp\\ChatApp.http",
-              "RelativeDocumentMoniker": "ChatApp.http",
-              "ToolTip": "D:\\ChatApp\\ChatApp.http",
-              "RelativeToolTip": "ChatApp.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-07-15T06:35:31.834Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "README.md",
-              "DocumentMoniker": "D:\\ChatApp\\README.md",
-              "RelativeDocumentMoniker": "README.md",
-              "ToolTip": "D:\\ChatApp\\README.md",
-              "RelativeToolTip": "README.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-07-15T06:32:22.242Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Models\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Models\\AppDbContext.cs",
-              "ToolTip": "D:\\ChatApp\\Models\\AppDbContext.cs",
-              "RelativeToolTip": "Models\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "MessageSendFailedException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Conversation\\MessageSendFailedException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\Conversation\\MessageSendFailedException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Conversation\\MessageSendFailedException.cs",
+              "RelativeToolTip": "Domain\\Exceptions\\Conversation\\MessageSendFailedException.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:31:35.185Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ChatApp",
-              "DocumentMoniker": "D:\\ChatApp\\ChatApp.csproj",
-              "RelativeDocumentMoniker": "ChatApp.csproj",
-              "ToolTip": "D:\\ChatApp\\ChatApp.csproj",
-              "RelativeToolTip": "ChatApp.csproj",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-15T06:19:06.252Z",
+              "WhenOpened": "2025-07-25T03:10:33.86Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "WeatherForecastController.cs",
-              "DocumentMoniker": "D:\\ChatApp\\Controllers\\WeatherForecastController.cs",
-              "RelativeDocumentMoniker": "Controllers\\WeatherForecastController.cs",
-              "ToolTip": "D:\\ChatApp\\Controllers\\WeatherForecastController.cs",
-              "RelativeToolTip": "Controllers\\WeatherForecastController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "MessageTypeNotSupportedException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Conversation\\MessageTypeNotSupportedException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\Conversation\\MessageTypeNotSupportedException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Conversation\\MessageTypeNotSupportedException.cs",
+              "RelativeToolTip": "Domain\\Exceptions\\Conversation\\MessageTypeNotSupportedException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:37:41.697Z",
+              "WhenOpened": "2025-07-25T03:09:25.543Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UserNotInConversationException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Conversation\\UserNotInConversationException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\Conversation\\UserNotInConversationException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Conversation\\UserNotInConversationException.cs",
+              "RelativeToolTip": "Domain\\Exceptions\\Conversation\\UserNotInConversationException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T03:08:46.014Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MessageNotFoundException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Conversation\\MessageNotFoundException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\Conversation\\MessageNotFoundException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Conversation\\MessageNotFoundException.cs",
+              "RelativeToolTip": "Domain\\Exceptions\\Conversation\\MessageNotFoundException.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T03:08:13.402Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ConversationNotFoundException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Conversation\\ConversationNotFoundException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\Conversation\\ConversationNotFoundException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Conversation\\ConversationNotFoundException.cs",
+              "RelativeToolTip": "Domain\\Exceptions\\Conversation\\ConversationNotFoundException.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T03:07:46.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "BlockedUserException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Friend\\BlockedUserException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\Friend\\BlockedUserException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Friend\\BlockedUserException.cs",
+              "RelativeToolTip": "Domain\\Exceptions\\Friend\\BlockedUserException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T03:06:57.251Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "WeatherForecast.cs",
-              "DocumentMoniker": "D:\\ChatApp\\WeatherForecast.cs",
-              "RelativeDocumentMoniker": "WeatherForecast.cs",
-              "ToolTip": "D:\\ChatApp\\WeatherForecast.cs",
-              "RelativeToolTip": "WeatherForecast.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "CannotAddYourselfException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Friend\\CannotAddYourselfException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\Friend\\CannotAddYourselfException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Friend\\CannotAddYourselfException.cs",
+              "RelativeToolTip": "Domain\\Exceptions\\Friend\\CannotAddYourselfException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T06:16:30.318Z",
+              "WhenOpened": "2025-07-25T03:06:23.22Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "FriendRequestNotFoundException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Friend\\FriendRequestNotFoundException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\Friend\\FriendRequestNotFoundException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Friend\\FriendRequestNotFoundException.cs",
+              "RelativeToolTip": "Domain\\Exceptions\\Friend\\FriendRequestNotFoundException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T01:01:52.708Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "FriendAlreadyExistsException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Friend\\FriendAlreadyExistsException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\Friend\\FriendAlreadyExistsException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Friend\\FriendAlreadyExistsException.cs",
+              "RelativeToolTip": "Domain\\Exceptions\\Friend\\FriendAlreadyExistsException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T01:01:13.152Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "FriendRequestAlreadySentException.cs",
+              "DocumentMoniker": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Friend\\FriendRequestAlreadySentException.cs",
+              "RelativeDocumentMoniker": "Domain\\Exceptions\\Friend\\FriendRequestAlreadySentException.cs",
+              "ToolTip": "D:\\ProjectsWorking\\chat-app\\Domain\\Exceptions\\Friend\\FriendRequestAlreadySentException.cs",
+              "RelativeToolTip": "Domain\\Exceptions\\Friend\\FriendRequestAlreadySentException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T01:00:50.441Z"
             }
           ]
         }

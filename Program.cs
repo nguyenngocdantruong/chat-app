@@ -1,13 +1,13 @@
-﻿using ChatApp.Models;
-using ChatApp.Repo.Implementations;
-using ChatApp.Repo.Interfaces;
-using ChatApp.Services.Implementations;
-using ChatApp.Services.Interfaces;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
-using ChatApp.Repo.Interfaces;
-using ChatApp.Repo.Implementations;
 using Microsoft.OpenApi.Models;
+using ChatApp.Infrastructure.Data;
+using ChatApp.Domain.Interfaces;
+using ChatApp.Infrastructure.Repositories;
+using ChatApp.Application.Services;
+using ChatApp.Application.Interfaces;
+using ChatApp.Presentation.Middlewares;
+using ChatApp.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -23,17 +23,7 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-// Configure DbContext
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-// Register Generic Repositories & Services
-builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
-
-// Register User-specific Repositories & Services
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddInfrastructure(builder.Configuration);
 
 
 builder.Services.AddControllers();
@@ -46,6 +36,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 

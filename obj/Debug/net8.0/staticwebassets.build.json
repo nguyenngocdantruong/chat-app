@@ -1,11 +1,1 @@
-{
-  "Version": 1,
-  "Hash": "/WaPPn3cDP9xMCNEPZKZQwoA5RA+USgYIvnCB1FGsOQ=",
-  "Source": "ChatApp",
-  "BasePath": "_content/ChatApp",
-  "Mode": "Default",
-  "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
-}
+{"Version":1,"Hash":"jlrSrNu/W9bW3XWNHMIMp211ehCzhC6lfOS2bieLv8E=","Source":"ChatApp","BasePath":"_content/ChatApp","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
