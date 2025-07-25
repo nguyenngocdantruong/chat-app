@@ -1,0 +1,66 @@
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio
+.vscode/
+.vs/
+
+# Rider
+.idea/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# DotCover
+*.dotCover
+
+# Logs
+*.log
+
+# NuGet
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/packages/*
+!**/packages/build/
+!**/packages/repositories.config
+
+# Npm
+node_modules/
+
+# Others
+*.dbmdl
+*.bak
+*.backup
+*.mdf
+*.ldf
+
+# Publish
+*.publish.xml
+
+# EF Migrations
+Migrations/
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# Local history for Visual Studio
+.localhistory/
+
+
+# App settings
+appsettings.json
+appsettings.Development.json
