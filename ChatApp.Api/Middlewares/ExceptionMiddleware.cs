@@ -38,7 +38,8 @@ namespace ChatApp.Api.Middlewares
                     Code = 500,
                     Message = ex.Message,
                     Success = false,
-                    Errors = new {}
+                    Errors = new {},
+                    StackTrace = ex.StackTrace
                 };
 
                 await context.Response.WriteAsJsonAsync(response);

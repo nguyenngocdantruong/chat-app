@@ -1,23 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ChatApp.Shared.Services;
+﻿using ChatApp.Application.Interfaces.ExternalService;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace ChatApp.Infrastructure.ExternalServices.CacheService
 {
     internal class CacheService(IMemoryCache memoryCache) : ICacheService<string>
     {
-        public string Get(string key)
+        public async Task<string> Get(string key)
         {
-            object? item = memoryCache.Get(key);
-            if (item == null) return "";
-            return item.ToString() ?? "";
+            if (memoryCache.TryGetValue(key, out object? result))
+            {
+                if (result == null) return "";
+                return await Task.FromResult((string)result);
+            }
+            return "";
         }
 
-        public void Set(string key, string value, TimeSpan? expiration = null)
+        public async Task Set(string key, string value, TimeSpan? expiration = null)
         {
             if (expiration != null)
             {
@@ -27,11 +25,13 @@ namespace ChatApp.Infrastructure.ExternalServices.CacheService
             {
                 memoryCache.Set(key, value);
             }
+            await Task.CompletedTask;
         }
 
-        public void Remove(string key)
+        public async Task Remove(string key)
         {
             memoryCache.Remove(key);
+            await Task.CompletedTask;
         }
     }
 }

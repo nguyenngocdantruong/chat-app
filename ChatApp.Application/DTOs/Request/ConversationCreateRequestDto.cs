@@ -8,7 +8,8 @@ namespace ChatApp.Application.DTOs.Request
     {
         [StringLength(100, ErrorMessage = "The room name is max 100 characters.")]
         public string? Name { get; set; }
-        public bool? IsGroup { get; set; } = false;
+        public bool? IsGroup => Members?.Count > 1;
+
         public AttachmentRequestDto? AvatarFile { get; set; }
 
         [StringLength(50)]
@@ -17,6 +18,6 @@ namespace ChatApp.Application.DTOs.Request
         [StringLength(50)]
         public string? Emoji { get; set; } = "default";
 
-        public List<Guid>? Members { get; set; } = new List<Guid>();
+        public List<Guid> Members { get; set; } = new List<Guid>();
     }
 }

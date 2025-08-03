@@ -13,27 +13,29 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ChatApp.Application.Services
 {
-    public abstract class GenericService<TEntity>(IUnitOfWork uow) : IGenericService<TEntity>
+    public abstract class GenericService<TEntity, TResponseDto>(IUnitOfWork uow, IDtoMapper<TEntity, TResponseDto> mapper) : IGenericService<TEntity, TResponseDto>
         where TEntity : BaseEntity
+        where TResponseDto: class
 
     {
         protected readonly IUnitOfWork UnitOfWork = uow;
         private readonly IGenericRepository<TEntity> _repository = uow.GetRepository<TEntity>();
 
 
-        public async Task<TEntity?> GetByIdAsync(Guid id)
+        public async Task<TResponseDto?> GetByIdAsync(Guid id)
         {
-            return await _repository.GetByIdAsync(id);
+            var entity = await _repository.GetByIdAsync(id);
+            return entity == null ? null : mapper.MapToResponseDto(entity);
         }
 
-        public async Task<TEntity> CreateAsync(TEntity entity)
+        public async Task<TResponseDto> CreateAsync(TEntity entity)
         {
             var repository = UnitOfWork.GetRepository<TEntity>();
             var resultCreated = await repository.AddAsync(entity);
-            return resultCreated;
+            return mapper.MapToResponseDto(resultCreated);
         }
 
-        public async Task<bool> UpdateAsync(TEntity entity)
+        public async Task UpdateAsync(Guid id, TEntity entity)
         {
             if (entity is null)
             {
@@ -43,11 +45,16 @@ namespace ChatApp.Application.Services
             {
                 throw new ValidationException("Entity ID cannot be empty.");
             }
+
+            if (id != entity.Guid)
+            {
+                throw new BadRequestException("Entity ID is different");
+            }
             var repository = UnitOfWork.GetRepository<TEntity>();
-            return await repository.Update(entity);
+            await repository.Update(entity);
         }
 
-        public async Task<bool> DeleteAsync(Guid id)
+        public async Task DeleteAsync(Guid id)
         {
             var repository = UnitOfWork.GetRepository<TEntity>();
             var entityDeleting = await repository.GetByIdAsync(id);
@@ -55,13 +62,7 @@ namespace ChatApp.Application.Services
             {
                 throw new RecordNotFoundException($"Entity with ID {id} not found.");
             }
-            var resultDeleted = await repository.Delete(entityDeleting);
-            return resultDeleted;
-        }
-
-        public async Task<IEnumerable<TEntity>> GetAllAsync()
-        {
-            return await _repository.GetAllAsync();
+            await repository.Delete(entityDeleting);
         }
     }
 

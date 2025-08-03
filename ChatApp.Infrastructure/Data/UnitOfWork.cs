@@ -17,7 +17,7 @@ namespace ChatApp.Infrastructure.Data
         public IAuditLogRepository AuditLogRepository { get; private set; }
         public IConversationRepository ConversationRepository { get; private set; }
         public IConversationMemberRepository ConversationMemberRepository { get; private set; }
-        public IFcmTokenRepository FCMTokenRepository { get; private set; }
+        public IFcmTokenRepository FcmTokenRepository { get; private set; }
         public IFriendRepository FriendRepository { get; private set; }
         public IMessageRepository MessageRepository { get; private set; }
         public IUserRepository UserRepository { get; private set; }

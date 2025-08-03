@@ -5,7 +5,7 @@ using ChatApp.Domain.Entities;
 
 namespace ChatApp.Application.Interfaces.Services
 {
-    public interface IFriendService: IGenericService<Friend>
+    public interface IFriendService: IGenericService<Friend, FriendResponseDto>
     {
         Task<IQueryable<FriendResponseDto>> GetFriendsByUserIdAsync(Guid userId, FriendFilter filter);
         Task<FriendResponseDto?> GetFriendBetweenUsers(Guid userId1, Guid userId2);

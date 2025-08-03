@@ -9,10 +9,11 @@ using ChatApp.Domain.Entities;
 
 namespace ChatApp.Application.Interfaces.Services
 {
-    public interface IRefreshTokenService: IGenericService<RefreshToken>
+    public interface IRefreshTokenService: IGenericService<RefreshToken, RefreshTokenResponseDto>
     {
         Task<IEnumerable<RefreshTokenResponseDto>> GetActiveRefreshTokens(Guid userId);
         Task RevokeAllActiveTokens(Guid userId);
+        Task RevokeToken(Guid tokenId);
         Task<TokenResponseDto> RotationRefreshToken(RefreshAccessTokenRequestDto requestDto);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace ChatApp.Application.DTOs.Request
 {
-    public class RefreshAccessTokenRequestDto : BaseRequestDto
+    public class RefreshAccessTokenRequestDto
     {
         [Required(ErrorMessage = "User Id is required")]
         public Guid UserId { get; set; }

@@ -12,6 +12,8 @@ namespace ChatApp.Application.DTOs.Request
 {
     public class RegisterRequestDto
     {
+        [Required(ErrorMessage = "Transaction Id is required")]
+        public string TransactionId { get; set; } = null!;
         [Required(ErrorMessage = "Username is required")]
         [StringLength(50)]
         public string Username { get; set; } = null!;

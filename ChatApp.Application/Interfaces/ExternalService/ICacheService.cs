@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ChatApp.Shared.Services
+﻿namespace ChatApp.Application.Interfaces.ExternalService
 {
     public interface ICacheService<T>
     {
-        T Get(string key);
-        void Set(string key, T value, TimeSpan? expiration = null);
-        void Remove(string key);
+        Task<T> Get(string key);
+        Task Set(string key, T value, TimeSpan? expiration = null);
+        Task Remove(string key);
     }
 }

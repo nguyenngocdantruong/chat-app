@@ -3,13 +3,13 @@
 namespace ChatApp.Application.Interfaces.Services
 {
 
-    public interface IGenericService<TEntity>
+    public interface IGenericService<in TEntity,TResponseDto>
     where TEntity : BaseEntity
+    where TResponseDto : class
     {
-        Task<TEntity?> GetByIdAsync(Guid id);
-        Task<TEntity> CreateAsync(TEntity entity);
-        Task<bool> UpdateAsync(TEntity entity);
-        Task<bool> DeleteAsync(Guid id);
-        Task<IEnumerable<TEntity>> GetAllAsync();
+        Task<TResponseDto?> GetByIdAsync(Guid id);
+        Task<TResponseDto> CreateAsync(TEntity entity);
+        Task UpdateAsync(Guid id, TEntity entity);
+        Task DeleteAsync(Guid id);
     }
 }

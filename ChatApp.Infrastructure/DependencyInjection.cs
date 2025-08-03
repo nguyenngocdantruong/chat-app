@@ -16,7 +16,6 @@ using ChatApp.Infrastructure.ExternalServices.MailService;
 using ChatApp.Infrastructure.ExternalServices.TokenService;
 using ChatApp.Infrastructure.Repositories;
 using ChatApp.Shared.Configurations;
-using ChatApp.Shared.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
@@ -121,6 +120,7 @@ namespace ChatApp.Infrastructure
             //services.AddScoped<DbContext, AppDbContext>();
 
             // Register mapper
+            services.AddScoped<IRefreshTokenMapper, RefreshTokenMapper>();
             services.AddScoped<IUserMapper, UserMapper>();
 
             // Register repositories
@@ -134,6 +134,7 @@ namespace ChatApp.Infrastructure
 
             //Register Services
             //services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
+            services.AddScoped<IAuditLogService, AuditLogService>();
             services.AddSingleton<ITokenService, JwtTokenService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAuthService, AuthService>();

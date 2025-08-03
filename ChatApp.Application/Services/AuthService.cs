@@ -1,6 +1,7 @@
 ﻿using ChatApp.Application.DTOs.Filter;
 using ChatApp.Application.DTOs.Request;
 using ChatApp.Application.DTOs.Response;
+using ChatApp.Application.DTOs.Result;
 using ChatApp.Application.Interfaces;
 using ChatApp.Application.Interfaces.Authentication;
 using ChatApp.Application.Interfaces.ExternalService;
@@ -15,7 +16,6 @@ using ChatApp.Domain.Interfaces;
 using ChatApp.Shared.Configurations;
 using ChatApp.Shared.Constants;
 using ChatApp.Shared.Security;
-using ChatApp.Shared.Services;
 using ChatApp.Shared.Utils;
 using ValidationException = System.ComponentModel.DataAnnotations.ValidationException;
 using ArgNullException = ChatApp.Domain.Exceptions.Runtime.ArgumentNullException;
@@ -25,8 +25,7 @@ namespace ChatApp.Application.Services
     public class AuthService
         (IUserService userService, IUserMapper mapper, IUnitOfWork unitOfWork,
             ICacheService<string> cacheService, IMailService mailService, ITokenService tokenService,
-            IFileService fileService, ITokenSetting tokenSetting, IRefreshTokenService refreshTokenService,
-            ICurrentUserService currentUserService)
+            IFileService fileService, ITokenSetting tokenSetting, IRefreshTokenService refreshTokenService)
         : IAuthService
     {
         private readonly IUnitOfWork _unitOfWork = unitOfWork ?? throw new ArgNullException(nameof(unitOfWork));
@@ -38,26 +37,22 @@ namespace ChatApp.Application.Services
         private readonly ITokenSetting _tokenSetting = tokenSetting ?? throw new ArgNullException(nameof(tokenSetting));
         private readonly IFileService _fileService = fileService ?? throw new ArgNullException(nameof(fileService));
         private readonly IRefreshTokenService _refreshTokenService = refreshTokenService ?? throw new ArgNullException(nameof(refreshTokenService));
-        private readonly ICurrentUserService _currentUserService = currentUserService ?? throw new ArgNullException(nameof(currentUserService));
 
-        public async Task<LoginResponseDto> LoginFirstStep(LoginRequestDto loginRequestDto)
+        public async Task<Result<LoginResponseDto>> LoginFirstStep(LoginRequestDto loginRequestDto)
         {
-
             // Validate the login request
             if (string.IsNullOrWhiteSpace(loginRequestDto.Email) || string.IsNullOrWhiteSpace(loginRequestDto.Password))
             {
                 throw new ValidationException("Email and password must not be empty.");
             }
-            LoginResponseDto response = new LoginResponseDto();
+            LoginResponseDto loginResponseDto = new LoginResponseDto();
             var user = await _userService.GetByEmailAsync(loginRequestDto.Email);
             if(user == null)
             {
-                response.IsStepSuccess = false;
-                response.User = null;
-                response.Token = null;
-                return response;
+                return Result<LoginResponseDto>.Failure("User with that email doesn't exists");
             }
 
+            Result<LoginResponseDto> result = new();
             //Validate the user password
             if (user.Email.Equals(loginRequestDto.Email) &&
                 await _userService.ComparePasswordAsync(user.Guid, loginRequestDto.Password))
@@ -67,21 +62,24 @@ namespace ChatApp.Application.Services
                 await _mailService.SendOtp(user.Email, otpRandom, ActionType.Login);
                 // Generate a transaction ID for the first step of login
                 string transactionId = ItemGenerator.GenerateRandom();
-                _cacheService.Set(transactionId, otpRandom, TimeSpan.FromMinutes(15));
-                response.TransactionId = transactionId;
-                response.IsStepSuccess = true;
+                await _cacheService.Set(transactionId, otpRandom, TimeSpan.FromMinutes(15));
+                loginResponseDto.TransactionId = transactionId;
+                result.IsSuccess = true;
+                result.Data = loginResponseDto;
+                result.Message = "Please input 2FA OTP code sent to your email.";
             }
             else
             {
-                response.IsStepSuccess = false;
-                response.TransactionId = null;
+                loginResponseDto.TransactionId = null;
+                result.IsSuccess = false;
+                result.Message = "Invalid email or password.";
             }
-            response.User = null;
-            response.Token = null;
-            return response;
+            loginResponseDto.User = null;
+            loginResponseDto.Token = null;
+            return result;
         }
 
-        public async Task<LoginResponseDto> LoginWith2FaAsync(LoginRequestDto loginRequestDto)
+        public async Task<Result<LoginResponseDto>> LoginWith2FaAsync(LoginRequestDto loginRequestDto)
         {
             // Validate the login request
             if (string.IsNullOrWhiteSpace(loginRequestDto.Email) || string.IsNullOrWhiteSpace(loginRequestDto.Code) || string.IsNullOrEmpty(loginRequestDto.TransactionId))
@@ -89,21 +87,13 @@ namespace ChatApp.Application.Services
                 throw new ValidationException("Email, code and transaction id must not be empty.");
             }
 
-            LoginResponseDto response = new LoginResponseDto
-            {
-                IsStepSuccess = false,
-                Token = null,
-                User = null,
-                TransactionId = loginRequestDto.TransactionId
-            };
-
             var user = await _userService.GetByEmailAsync(loginRequestDto.Email);
             if (user == null)
             {
                 throw new RecordNotFoundException("User not found with the provided email.");
             }
             // Check if the transaction ID is valid
-            string otpCodeInCache = _cacheService.Get(loginRequestDto.TransactionId);
+            string otpCodeInCache = await _cacheService.Get(loginRequestDto.TransactionId);
             if (otpCodeInCache == null)
             {
                 throw new BadRequestException("Invalid transaction ID or expired.");
@@ -114,9 +104,9 @@ namespace ChatApp.Application.Services
                 throw new InvalidCredentialException("Invalid OTP code.");
             }
             // Clear the OTP code from cache after successful verification
-            _cacheService.Remove(loginRequestDto.TransactionId);
+            await _cacheService.Remove(loginRequestDto.TransactionId);
             // Generate JWT token
-            string token = _tokenService.GenerateToken(user.Guid, user.Email ?? "");
+            string token = _tokenService.GenerateToken(user.Guid, user.Email);
             string refreshToken = _tokenService.GenerateRefreshToken();
 
             // Update the user's refresh token and expiry date
@@ -135,9 +125,8 @@ namespace ChatApp.Application.Services
                 throw new DatabaseOperationException("Failed to save user refresh token.");
             }
 
-            response = new LoginResponseDto
+            var loginResponseDto = new LoginResponseDto
             {
-                IsStepSuccess = true,
                 Token = new TokenResponseDto()
                 {
                     AccessToken = token,
@@ -145,18 +134,20 @@ namespace ChatApp.Application.Services
                     RefreshToken = refreshToken,
                     RefreshTokenExpiry = DateTime.UtcNow.AddDays(_tokenSetting.RefreshTokenExpirationDays)
                 },
-                User = _mapper.MapToResponseDto(user),
+                User = user,
                 TransactionId = null // Clear transaction ID after successful login
             };
-            return response;
+            Result<LoginResponseDto> result = new Result<LoginResponseDto>
+            {
+                IsSuccess = true,
+                Data = loginResponseDto,
+                Message = "Login successful."
+            };
+            return result;
         }
 
         public async Task ResendEmailAsync(ResendEmailRequestDto resendEmailRequestDto)
         {
-            if (resendEmailRequestDto == null)
-            {
-                throw new NullValueException("Resend email request cannot be null.");
-            }
             // Validate the resend email request
             if (string.IsNullOrWhiteSpace(resendEmailRequestDto.Email) || string.IsNullOrWhiteSpace(resendEmailRequestDto.TransactionId))
             {
@@ -168,7 +159,8 @@ namespace ChatApp.Application.Services
                 throw new RecordNotFoundException("User not found with the provided email.");
             }
             //Check if the transaction ID is valid
-            if (string.IsNullOrWhiteSpace(resendEmailRequestDto.TransactionId) || string.IsNullOrEmpty(_cacheService.Get(resendEmailRequestDto.TransactionId)))
+            string oldOtp = await _cacheService.Get(resendEmailRequestDto.TransactionId);
+            if (string.IsNullOrWhiteSpace(resendEmailRequestDto.TransactionId) || string.IsNullOrEmpty(oldOtp))
             {
                 throw new BadRequestException("Invalid transaction ID or expired.");
             }
@@ -176,26 +168,89 @@ namespace ChatApp.Application.Services
             string otpRandom = ItemGenerator.GenerateOtp(length: 6);
             await _mailService.SendOtp(user.Email, otpRandom, resendEmailRequestDto.ActionType);
             // Store the OTP code in cache with the transaction ID
-            _cacheService.Set(resendEmailRequestDto.TransactionId, otpRandom, TimeSpan.FromMinutes(15));
+            await _cacheService.Set(resendEmailRequestDto.TransactionId, otpRandom, TimeSpan.FromMinutes(15));
         }
 
-        public async Task<LoginResponseDto?> RegisterAsync(RegisterRequestDto userRequestDto, AttachmentRequestDto? attachmentRequestDto)
+        public async Task<Result<PreRegisterResponseDto>> PreRegisterAsync(PreRegisterRequestDto preRegisterRequestDto)
         {
-            if (userRequestDto == null)
-            {
-                throw new NullValueException("User request cannot be null.");
-            }
-            
             // Validate email exists
-            var emailExist = await _userService.GetByEmailAsync(userRequestDto.Email);
-            if(emailExist != null)
+            var emailExist = await _userService.GetByEmailAsync(preRegisterRequestDto.Email);
+            if (emailExist != null)
             {
                 throw new DuplicateException("User with this email already exists.");
             }
 
+            Result<PreRegisterResponseDto> result;
+            //Check if the pre-register has transaction ID
+            if (!string.IsNullOrEmpty(preRegisterRequestDto.TransactionId))
+            {
+                string otp = await _cacheService.Get(preRegisterRequestDto.TransactionId);
+                // Validate the transaction ID and code
+                if (string.IsNullOrWhiteSpace(preRegisterRequestDto.TransactionId) || string.IsNullOrEmpty(otp))
+                {
+                    throw new BadRequestException("Invalid transaction ID or expired.");
+                }
+                if (string.IsNullOrWhiteSpace(preRegisterRequestDto.Code) 
+                    || !preRegisterRequestDto.Code.Equals(otp, StringComparison.OrdinalIgnoreCase))
+                {
+                    throw new InvalidCredentialException("Invalid verification code.");
+                }
+                //Successfully verified the pre-registration request
+                await _cacheService.Set(preRegisterRequestDto.TransactionId, preRegisterRequestDto.Email,
+                    TimeSpan.FromMinutes(5));
+                result = new Result<PreRegisterResponseDto>
+                {
+                    IsSuccess = true,
+                    Message = "Pre-registration successful. The request valid in 5 minutes.",
+                    Data = new PreRegisterResponseDto
+                    {
+                        Email = preRegisterRequestDto.Email,
+                        TransactionId = preRegisterRequestDto.TransactionId 
+                    }
+                };
+            }
+            // Create new pre-register request
+            else
+            {
+                string transactionId = ItemGenerator.GenerateRandom();
+                PreRegisterResponseDto preRegisterResponseDto = new PreRegisterResponseDto
+                {
+                    Email = preRegisterRequestDto.Email,
+                    TransactionId = transactionId
+                };
+                // Generate a verification code and store it in cache
+                string verificationCode = ItemGenerator.GenerateOtp(length: 6);
+                await _cacheService.Set(transactionId, verificationCode, TimeSpan.FromMinutes(15));
+                //Send email
+                await _mailService.SendOtp(preRegisterRequestDto.Email, verificationCode, ActionType.Register);
+                result = new Result<PreRegisterResponseDto>
+                {
+                    IsSuccess = true,
+                    Message = "Please check your email for the verification code.",
+                    Data = preRegisterResponseDto
+                };
+            }
+            return result;
+        }
+
+        public async Task<Result<LoginResponseDto>> RegisterAsync(RegisterRequestDto userRequestDto, AttachmentRequestDto? attachmentRequestDto)
+        {
+            var emailRequest = await _cacheService.Get(userRequestDto.TransactionId);
+            bool isValidRequest = !string.IsNullOrEmpty(emailRequest) &&
+                                  userRequestDto.Email.Equals(emailRequest, StringComparison.OrdinalIgnoreCase);
+            if (isValidRequest == false)
+            {
+                throw new BadRequestException("Register request is invalid or expired. Please start over again.");
+            }
+
             AttachmentResponseDto? attachmentResponseDto = null;
-            if(attachmentRequestDto != null) 
+            if (attachmentRequestDto != null)
+            {
                 attachmentResponseDto = await _fileService.UploadFileAsync(attachmentRequestDto);
+                // Implementation of attachment upload logic
+
+                //
+            }
             var entity = _mapper.Map(userRequestDto, attachmentResponseDto);
             var resultCreated  = await _userService.CreateAsync(entity);
 
@@ -223,78 +278,32 @@ namespace ChatApp.Application.Services
             {
                 throw new DatabaseOperationException("Failed to register user & its token.");
             }
-
-            return new LoginResponseDto()
+            Result<LoginResponseDto> result = new Result<LoginResponseDto>
             {
-                IsStepSuccess = true,
-                Token = tokenResponseDto,
-                User = _mapper.MapToResponseDto(resultCreated),
-                TransactionId = null
+                IsSuccess = true,
+                Message = "User registered successfully.",
+                Data = new LoginResponseDto
+                {
+                    Token = tokenResponseDto,
+                    User = resultCreated,
+                    TransactionId = null // Clear transaction ID after successful registration
+                }
             };
+            return result;
         }
 
-        public async Task<TokenResponseDto> RefreshAccessTokenAsync(RefreshAccessTokenRequestDto refreshAccessTokenRequestDto)
+        public async Task<Result<TokenResponseDto>> RefreshAccessTokenAsync(RefreshAccessTokenRequestDto refreshAccessTokenRequestDto)
         {
-            if (refreshAccessTokenRequestDto == null) {
-                throw new NullValueException("Refresh access token request cannot be null.");
-            }
-            var user = await _userService.GetByIdAsync(refreshAccessTokenRequestDto.UserId);
-            var refreshToken 
-                = (await _refreshTokenService.GetActiveRefreshTokens(refreshAccessTokenRequestDto.UserId)).FirstOrDefault(m => m.Token.Equals(refreshAccessTokenRequestDto.RefreshToken));
-            if (user == null)
+            TokenResponseDto newToken = await _refreshTokenService.RotationRefreshToken(refreshAccessTokenRequestDto);
+            return new Result<TokenResponseDto>
             {
-                throw new RecordNotFoundException("User not found with the provided ID.");
-            }
-
-            if (refreshToken == null)
-            {
-                throw new RecordNotFoundException("Not found this request token.");
-            }
-
-            bool invalidToken = string.IsNullOrWhiteSpace(refreshAccessTokenRequestDto.RefreshToken) ||
-                              string.IsNullOrEmpty(refreshToken.Token);
-            bool expiredToken = refreshToken.IsRevoked ||
-                                refreshToken.ExpirationDate < DateTime.UtcNow;
-            bool diffToken = !refreshToken.Token.Equals(refreshAccessTokenRequestDto.RefreshToken, StringComparison.OrdinalIgnoreCase);
-            // Validate the refresh token
-            if (invalidToken || expiredToken || diffToken)
-            {
-                throw new InvalidCredentialException("Invalid or expired refresh token.");
-            }
-
-            TokenResponseDto response = new TokenResponseDto();
-            //Revoke the old refresh token
-            refreshToken.IsRevoked = true;
-            // Generate new access token
-            string newAccessToken = _tokenService.GenerateToken(user.Guid, user.Email);
-            DateTime expiredAccessToken = DateTime.UtcNow.AddMinutes(_tokenSetting.ExpirationMinutes);
-            // Generate new refresh token
-            string newRefreshToken = _tokenService.GenerateRefreshToken();
-            DateTime expiredRefreshToken = DateTime.UtcNow.AddDays(_tokenSetting.RefreshTokenExpirationDays);
-            // Update the user's refresh token and expiry date
-            var refreshTokenEntity = new RefreshToken()
-            {
-                UserId = user.Guid,
-                Token = newRefreshToken,
-                ExpirationDate = expiredRefreshToken,
-                IsRevoked = false,
-                IsDeleted = false
+                IsSuccess = true,
+                Message = "Access token refreshed successfully.",
+                Data = newToken
             };
-            await _refreshTokenService.CreateAsync(refreshTokenEntity);
-            // Save changes to the database
-            var recordSave = await _unitOfWork.SaveChangesAsync();
-            if (recordSave <= 0)
-            {
-                throw new DatabaseOperationException("Failed to update user refresh token.");
-            }
-            response.RefreshToken = newRefreshToken;
-            response.AccessToken = newAccessToken;
-            response.AccessTokenExpiry = expiredAccessToken;
-            response.RefreshTokenExpiry = expiredRefreshToken;
-            return response;
         }
 
-        public async Task LogoutAsync(Guid userId)
+        public async Task<Result<object>> LogoutAsync(Guid userId)
         {
             if (userId == Guid.Empty)
             {
@@ -302,9 +311,15 @@ namespace ChatApp.Application.Services
             }
             // Revoke all refresh tokens for the user
             await _refreshTokenService.RevokeAllActiveTokens(userId);
+            return new Result<object>
+            {
+                IsSuccess = true,
+                Message = "User logged out successfully.",
+                Data = null
+            };
         }
 
-        public async Task<bool> ChangePasswordAsync(Guid currentUserId, ChangePasswordRequestDto changePasswordRequestDto)
+        public async Task<Result<object>> ChangePasswordAsync(Guid currentUserId, ChangePasswordRequestDto changePasswordRequestDto)
         {
             if (changePasswordRequestDto == null)
             {
@@ -316,17 +331,28 @@ namespace ChatApp.Application.Services
             {
                 throw new RecordNotFoundException($"User not found with the provided ID {currentUserId}");
             }
-            // Validate the change password request
-            if (!PasswordHasher.Verify(changePasswordRequestDto.OldPassword, user.PasswordHash))
+            Result<object> result = new Result<object>
             {
-                return false;
+                IsSuccess = false,
+                Message = "Change password request is invalid."
+            };
+            // Validate the change password request
+            if (await userService.ComparePasswordAsync(user.Guid, changePasswordRequestDto.OldPassword))
+            {
+                return result;
             }
-            user = _mapper.Map(changePasswordRequestDto, user);
-            await _userService.UpdateAsync(user);
-            return await unitOfWork.SaveChangesAsync() > 0;
+            await _userService.ChangePasswordAsync(user.Guid, changePasswordRequestDto);
+            bool isSave = await _unitOfWork.SaveChangesAsync() > 0;
+            if (!isSave)
+            {
+                throw new DatabaseOperationException("Failed to change user password.");
+            }
+            result.IsSuccess = true;
+            result.Message = "User password changed successfully.";
+            return result;
         }
 
-        public async Task ForgotPasswordAsync(ForgotPasswordRequestDto forgotPasswordRequestDto)
+        public async Task<Result<object>> ForgotPasswordAsync(ForgotPasswordRequestDto forgotPasswordRequestDto)
         {
             var user = await _userService.GetByEmailAsync(forgotPasswordRequestDto.Email);
             if(user == null)
@@ -336,10 +362,16 @@ namespace ChatApp.Application.Services
             // Generate a reset token and store it in cache
             string resetToken = ItemGenerator.GenerateOtp(6);
             string key = ItemGenerator.GenerateKey(KeyCache.ResetPassword, user.Guid.ToString());
-            _cacheService.Set(key, resetToken, TimeSpan.FromMinutes(15));
+            await _cacheService.Set(key, resetToken, TimeSpan.FromMinutes(15));
+            return new Result<object>()
+            {
+                Data = null,
+                IsSuccess = true,
+                Message = "Reset token generated successfully. Please check your email.",
+            };
         }
 
-        public async Task<LoginResponseDto> ResetPasswordAsync(ResetPasswordRequestDto resetPasswordRequestDto)
+        public async Task<Result<LoginResponseDto>> ResetPasswordAsync(ResetPasswordRequestDto resetPasswordRequestDto)
         {
             var user = await _userService.GetByEmailAsync(resetPasswordRequestDto.Email);
             if (user == null)
@@ -348,16 +380,15 @@ namespace ChatApp.Application.Services
             }
             // Validate the reset token
             string key = ItemGenerator.GenerateKey(KeyCache.ResetPassword, user.Guid.ToString());
-            string resetTokenInCache = _cacheService.Get(key);
+            string resetTokenInCache = await _cacheService.Get(key);
             if (string.IsNullOrWhiteSpace(resetTokenInCache) || !resetTokenInCache.Equals(resetPasswordRequestDto.ResetToken, StringComparison.OrdinalIgnoreCase))
             {
                 throw new InvalidCredentialException("Invalid or expired reset token.");
             }
-            // Update the user's password
-            user = _mapper.Map(resetPasswordRequestDto, user);
-            await _userService.UpdateAsync(user);
+            // Reset the user's password
+            await _userService.ResetPasswordAsync(user.Guid, resetPasswordRequestDto);
             // Clear the reset token from cache
-            _cacheService.Remove(key);
+            await _cacheService.Remove(key);
             // Generate JWT token
             string token = _tokenService.GenerateToken(user.Guid, user.Email);
             string refreshToken = _tokenService.GenerateRefreshToken();
@@ -371,24 +402,26 @@ namespace ChatApp.Application.Services
                 IsDeleted = false
             };
             await _refreshTokenService.CreateAsync(refreshTokenNew);
-            var recordSave = await _unitOfWork.SaveChangesAsync();
-            if (recordSave < 2)
+            await _unitOfWork.SaveChangesAsync();
+
+            Result<LoginResponseDto> result = new Result<LoginResponseDto>
             {
-                throw new DatabaseOperationException("Failed to reset user password & its token.");
-            }
-            return new LoginResponseDto()
-            {
-                IsStepSuccess = true,
-                Token = new TokenResponseDto()
+                IsSuccess = true,
+                Message = "Password reset successfully.",
+                Data = new LoginResponseDto()
                 {
-                    AccessToken = token,
-                    AccessTokenExpiry = DateTime.UtcNow.AddMinutes(_tokenSetting.ExpirationMinutes),
-                    RefreshToken = refreshTokenNew.Token,
-                    RefreshTokenExpiry = refreshTokenNew.ExpirationDate
-                },
-                User = _mapper.MapToResponseDto(user),
-                TransactionId = null // Clear transaction ID after successful reset
+                    Token = new TokenResponseDto()
+                    {
+                        AccessToken = token,
+                        AccessTokenExpiry = DateTime.UtcNow.AddMinutes(_tokenSetting.ExpirationMinutes),
+                        RefreshToken = refreshTokenNew.Token,
+                        RefreshTokenExpiry = refreshTokenNew.ExpirationDate
+                    },
+                    User = user,
+                    TransactionId = null // Clear transaction ID after successful reset
+                }
             };
+            return result;
         }
     }
 }

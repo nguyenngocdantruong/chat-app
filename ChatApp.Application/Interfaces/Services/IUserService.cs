@@ -4,13 +4,16 @@ using ChatApp.Domain.Entities;
 
 namespace ChatApp.Application.Interfaces.Services
 {
-    public interface IUserService : IGenericService<User>
+    public interface IUserService : IGenericService<User, UserResponseDto>
     {
-        Task<User> GetCurrentUser(Guid userId);
-        Task<User?> GetByEmailAsync(string email);
-        Task<FcmToken> RegisterFcmTokenAsync(Guid userId, FcmTokenRequestDto fcmTokenRequestDto);
-        Task<FcmToken> UnregisterFcmTokenAsync(Guid userId, FcmTokenRequestDto fcmTokenRequestDto);
+        Task<UserResponseDto> GetCurrentUser(Guid userId);
+        Task<UserResponseDto?> GetByEmailAsync(string email);
+        Task<UserResponseDto?> GetByUsername(string username);
+        Task<FcmTokenResponseDto> RegisterFcmTokenAsync(Guid userId, FcmTokenRequestDto fcmTokenRequestDto);
+        Task<FcmTokenResponseDto> UnregisterFcmTokenAsync(Guid userId, FcmTokenRequestDto fcmTokenRequestDto);
         Task<bool> ComparePasswordAsync(Guid userId, string password);
+        Task ChangePasswordAsync(Guid userId, ChangePasswordRequestDto changePasswordRequestDto);
+        Task ResetPasswordAsync(Guid userId, ResetPasswordRequestDto resetPasswordRequestDto);
         Task DeleteAccountAsync(Guid currentUserId, Guid uid);
     }
 }

@@ -10,6 +10,5 @@ namespace ChatApp.Application.DTOs.Request
         public string? Password { get; set; }
         public string? Code { get; set; } // For 2FA
         public string? TransactionId { get; set; } // For tracking the login transaction
-        public FcmTokenRequestDto? FcmToken { get; set; } // For storing the FCM token
     }
 }

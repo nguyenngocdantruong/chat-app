@@ -8,7 +8,7 @@ namespace ChatApp.Domain.Interfaces
         IAuditLogRepository AuditLogRepository { get; }
         IConversationRepository ConversationRepository { get; }
         IConversationMemberRepository ConversationMemberRepository { get; }
-        IFcmTokenRepository FCMTokenRepository { get; }
+        IFcmTokenRepository FcmTokenRepository { get; }
         IFriendRepository FriendRepository { get; }
         IMessageRepository MessageRepository { get; }
         IUserRepository UserRepository { get; }

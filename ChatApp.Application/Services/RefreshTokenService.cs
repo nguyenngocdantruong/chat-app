@@ -1,5 +1,6 @@
 ﻿using ChatApp.Application.DTOs.Request;
 using ChatApp.Application.DTOs.Response;
+using ChatApp.Application.Interfaces.Mapper;
 using ChatApp.Application.Interfaces.Services;
 using ChatApp.Domain.Entities;
 using ChatApp.Domain.Exceptions.Authentication;
@@ -9,22 +10,16 @@ using ChatApp.Shared.Configurations;
 
 namespace ChatApp.Application.Services
 {
-    public class RefreshTokenService : GenericService<RefreshToken>, IRefreshTokenService
+    public class RefreshTokenService(
+        IUnitOfWork unitOfWork,
+        IUserService userService,
+        ITokenService tokenService,
+        ITokenSetting tokenSetting,
+        IRefreshTokenMapper mapper) : GenericService<RefreshToken, RefreshTokenResponseDto>(unitOfWork, mapper), IRefreshTokenService
     {
-        private readonly IUserService _userService;
-        private readonly ITokenService _tokenService;
-        private readonly ITokenSetting _tokenSetting;
-
-        public RefreshTokenService(
-            IUnitOfWork unitOfWork,
-            IUserService userService,
-            ITokenService tokenService,
-            ITokenSetting tokenSetting) : base(unitOfWork)
-        {
-            _userService = userService ?? throw new Domain.Exceptions.Runtime.ArgumentNullException(nameof(userService));
-            _tokenService = tokenService ?? throw new Domain.Exceptions.Runtime.ArgumentNullException(nameof(tokenService));
-            _tokenSetting = tokenSetting ?? throw new Domain.Exceptions.Runtime.ArgumentNullException(nameof(tokenSetting));
-        }
+        private readonly IUserService _userService = userService ?? throw new Domain.Exceptions.Runtime.ArgumentNullException(nameof(userService));
+        private readonly ITokenService _tokenService = tokenService ?? throw new Domain.Exceptions.Runtime.ArgumentNullException(nameof(tokenService));
+        private readonly ITokenSetting _tokenSetting = tokenSetting ?? throw new Domain.Exceptions.Runtime.ArgumentNullException(nameof(tokenSetting));
 
         public async Task<IEnumerable<RefreshTokenResponseDto>> GetActiveRefreshTokens(Guid userId)
         {
@@ -45,6 +40,17 @@ namespace ChatApp.Application.Services
             await UnitOfWork.SaveChangesAsync();
         }
 
+        public async Task RevokeToken(Guid tokenId)
+        {
+            RefreshToken? token = await UnitOfWork.RefreshTokenRepository.GetByIdAsync(tokenId);
+            if (token == null)
+            {
+                throw new RecordNotFoundException($"Refresh token not found with ID {tokenId}");
+            }
+            token.IsRevoked = true;
+            token.UpdatedAt = DateTime.UtcNow;
+        }
+
         public async Task<TokenResponseDto> RotationRefreshToken(RefreshAccessTokenRequestDto requestDto)
         {
             var user = await _userService.GetByIdAsync(requestDto.UserId);
@@ -60,8 +66,8 @@ namespace ChatApp.Application.Services
                 {
                     throw new RecordNotFoundException($"Refresh token not found with ID {token.Guid}");
                 }
-                var entity = await GetByIdAsync((Guid)token.Guid);
-                entity.IsRevoked = true;
+                //Revoke the old token
+                await RevokeToken(token.Guid.Value);
                 var expRefToken = DateTime.UtcNow.AddDays(_tokenSetting.RefreshTokenExpirationDays);
                 RefreshToken newRefreshToken = new RefreshToken()
                 {

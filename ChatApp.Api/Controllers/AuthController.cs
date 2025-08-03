@@ -3,6 +3,7 @@ using ChatApp.Application.DTOs.Request;
 using ChatApp.Application.DTOs.Response;
 using ChatApp.Application.Interfaces.Services;
 using ChatApp.Domain.Exceptions.Validate;
+using ChatApp.Shared.Utils;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Org.BouncyCastle.Utilities;
@@ -19,58 +20,60 @@ namespace ChatApp.Api.Controllers
         [ProducesResponseType(typeof(ResponseDto<LoginResponseDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ResponseDto<string>), StatusCodes.Status207MultiStatus)]
         [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status401Unauthorized)]
-        public async Task<IActionResult> Login([FromBody] LoginRequestDto? loginRequestDto)
+        public async Task<IActionResult> Login([FromBody] LoginRequestDto loginRequestDto)
         {
-            if (loginRequestDto == null)
-            {
-                return ResponseJson.BadRequest();
-            }
             // Login without 2FA code
             if (string.IsNullOrEmpty(loginRequestDto.Code) && string.IsNullOrEmpty(loginRequestDto.TransactionId))
             {
                 var data = await _authService.LoginFirstStep(loginRequestDto);
-                if (data.IsStepSuccess)
+                if (data.IsSuccess)
                 {
-                    return ResponseJson.MultiStatus(data, "Please input 2FA OTP", true);
+                    return ResponseJson.MultiStatus(data.Data, data.Message, true);
                 }
                 else
                 {
-                    return ResponseJson.Unauthorized(null, "Invalid username or password", false);
+                    return ResponseJson.Unauthorized(null, data.Message, false);
                 }
             }
             // Login with 2FA code
             else
             {
                 var data = await _authService.LoginWith2FaAsync(loginRequestDto);
-                if (data.IsStepSuccess)
+                if (data.IsSuccess )
                 {
-                    return ResponseJson.Ok(data, "Login successfully", true);
+                    return ResponseJson.Ok(data.Data, "Login successfully", true);
                 }
                 else
                 {
-                    return ResponseJson.Unauthorized(data, "Error while login with 2FA code", false);
+                    return ResponseJson.Unauthorized(data.Data, data.Message, false);
                 }
             }
         }
+        [HttpPost("pre-register")]
+        [Consumes("application/json")]
+        [ProducesResponseType(typeof(ResponseDto<PreRegisterResponseDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status409Conflict)]
+        public async Task<IActionResult> PreRegister([FromBody] PreRegisterRequestDto preRegisterRequestDto)
+        {
+            var result = await _authService.PreRegisterAsync(preRegisterRequestDto);
+            if (result.IsSuccess)
+            {
+                return ResponseJson.Ok(result.Data, result.Message, true);
+            }
+            return ResponseJson.BadRequest(null, result.Message);
+        }
+
         [HttpPost("register")]
         [Consumes("multipart/form-data")]
         [ProducesResponseType(typeof(ResponseDto<LoginResponseDto>), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Register([FromForm] RegisterRequestDto? registerRequestDto, IFormFile? avatarFile)
+        public async Task<IActionResult> Register([FromForm] RegisterRequestDto registerRequestDto, IFormFile? avatarFile)
         {
-            if (registerRequestDto == null)
-            {
-                return ResponseJson.BadRequest();
-            }
             AttachmentRequestDto? attachmentRequestDto = null;
             if (avatarFile != null && avatarFile.Length > 0)
             {
-                byte[] bytes;
-                using (var memoryStream = new MemoryStream())
-                {
-                    await avatarFile.CopyToAsync(memoryStream);
-                    bytes = memoryStream.ToArray();
-                }
+                byte[] bytes = await FileConvertor.GetBytes(avatarFile);
                 attachmentRequestDto = new AttachmentRequestDto
                 {
                     FileName = avatarFile.FileName,
@@ -79,11 +82,23 @@ namespace ChatApp.Api.Controllers
                 };
             }
             var result = await _authService.RegisterAsync(registerRequestDto, attachmentRequestDto);
-            if (result != null)
+            if (result.IsSuccess)
             {
-                return ResponseJson.Created(result, "Registered successfully", true);
+                return ResponseJson.Created(result.Data, result.Message, true);
             }
-            return ResponseJson.BadRequest(null, "Registration failed. Please check your input data.");
+            return ResponseJson.BadRequest(null, result.Message);
+        }
+
+        [HttpPost("refresh")]
+        [ProducesResponseType(typeof(ResponseDto<TokenResponseDto>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> RefreshAccessToken([FromBody] RefreshAccessTokenRequestDto refreshAccessTokenRequestDto)
+        {
+            var result = await _authService.RefreshAccessTokenAsync(refreshAccessTokenRequestDto);
+            if (result.IsSuccess)
+            {
+                return ResponseJson.Ok(result.Data, result.Message, true);
+            }
+            return ResponseJson.Unauthorized(null, result.Message, false);
         }
     }
 }

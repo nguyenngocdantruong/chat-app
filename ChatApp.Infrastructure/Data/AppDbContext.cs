@@ -44,13 +44,15 @@ public partial class AppDbContext(DbContextOptions<AppDbContext> options, IHttpC
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Name=DefaultConnection");
-
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<AuditLog>(entity =>
         {
             entity.HasKey(e => e.Guid).HasName("PK__AuditLog__3214EC074AADNS3BC3");
             entity.Property(e => e.Guid).HasDefaultValueSql("(newid())");
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql("(getdate())");
+            entity.Property(e => e.UpdatedAt).HasDefaultValueSql("(getdate())");
         });
 
         modelBuilder.Entity<Attachment>(entity =>
