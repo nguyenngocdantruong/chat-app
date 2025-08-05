@@ -17,6 +17,7 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="MailKit" Version="4.13.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.18" />
     <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.3.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.7">
@@ -33,13 +34,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\ExternalServices\FileStorage\" />
-    <Folder Include="Presentation\Hubs\" />
-	  <Folder Include="Shared\Constants\" />
-	  <Folder Include="Shared\Exceptions\" />
-	  <Folder Include="Shared\Middleware\" />
-	  <Folder Include="Shared\Response\" />
-	  <Folder Include="Shared\Validation\" />
+    <Folder Include="Application\" />
+    <Folder Include="Domain\" />
+    <Folder Include="Infrastructure\" />
+    <Folder Include="Presentation\" />
+    <Folder Include="Shared\" />
   </ItemGroup>
 
 </Project>

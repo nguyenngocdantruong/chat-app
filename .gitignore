@@ -64,3 +64,22 @@ _ReSharper*/
 # App settings
 appsettings.json
 appsettings.Development.json
+
+# Visual Studio files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build output
+bin/
+obj/
+*.cache
+*.pdb
+*.dll
+*.exe
+*.tmp
+*.log
+*.AssemblyInfo.cs
+
