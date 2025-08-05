@@ -122,6 +122,12 @@ namespace ChatApp.Application.Services
             }
             user.IsDeleted = true;
             await UnitOfWork.SaveChangesAsync();
+            return new Result<object>
+            {
+                IsSuccess = true,
+                Message = "Account deleted successfully",
+                Data = null
+            };
         }
     }
 }
