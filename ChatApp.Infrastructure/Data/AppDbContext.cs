@@ -164,15 +164,4 @@ public partial class AppDbContext(DbContextOptions<AppDbContext> options, IHttpC
         var userIdClaim = _httpContextAccessor.HttpContext?.User?.FindFirst(ClaimTypes.NameIdentifier);
         return userIdClaim != null ? Guid.Parse(userIdClaim.Value) : Guid.Empty;
     }
-
-    private ActionType ConvertStateToActionType(EntityState state)
-    {
-        return state switch
-        {
-            EntityState.Added => ActionType.Create,
-            EntityState.Modified => ActionType.Update,
-            EntityState.Deleted => ActionType.Delete,
-            _ => ActionType.Other
-        };
-    }
 }

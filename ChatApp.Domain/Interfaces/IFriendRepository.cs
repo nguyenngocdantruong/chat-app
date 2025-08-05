@@ -7,8 +7,6 @@ namespace ChatApp.Domain.Interfaces
         Task<IQueryable<Friend>> GetIncomingRequestAsync(Guid userId);
         Task<IQueryable<Friend>> GetOutgoingRequestAsync(Guid userId);
 
-        //Kiểm tra đã kết bạn
-        Task<bool> AreFriendAsync(Guid userId, Guid user1Id);
         //Gửi lời mời kb
         Task SendFriendRequestAsync(Guid userId, Guid targetUserId);
         //Chấp nhận lời mời kb

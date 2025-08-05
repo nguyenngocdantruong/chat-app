@@ -7,6 +7,5 @@ namespace ChatApp.Application.Interfaces.Services
         string GenerateToken(Guid uid, string email);
         string GenerateRefreshToken();
         ClaimsPrincipal? Validate(string token);
-
     }
 }

@@ -10,16 +10,16 @@ namespace ChatApp.Application.Interfaces.Services
     {
 
         Task<PagedResult<ConversationResponseDto>> GetConversationsByUserIdAsync(Guid userId, ConversationFilter filter);
-        Task<ConversationResponseDto> CreateConversationAsync(ConversationCreateRequestDto createRequestDto);
-        Task<ConversationResponseDto> UpdateConversationAsync(ConversationUpdateRequestDto updateRequestDto);
-        Task<ConversationSettingResponseDto?> GetConversationSettingByUser(Guid conversationId, Guid userId);
+        Task<Result<ConversationResponseDto>> CreateConversationAsync(ConversationCreateRequestDto createRequestDto);
+        Task<Result<ConversationResponseDto>> UpdateConversationAsync(ConversationUpdateRequestDto updateRequestDto);
+        Task<Result<Result<ConversationSettingResponseDto>>> GetConversationSettingByUser(Guid conversationId, Guid userId);
 
         #region Member
-        Task<bool> IsMemberInConversation(Guid conversationId, Guid userId);
-        Task<IEnumerable<ConversationMemberResponseDto>> GetMembersByConversationIdAsync(Guid conversationId);
-        Task<ConversationMemberResponseDto> AddMemberToConversationAsync(ConversationEventRequestDto conversationEventRequestDto);
-        Task<ConversationMemberResponseDto> UpdateMemberInConversationAsync(ConversationEventRequestDto conversationEventRequestDto);
-        Task<bool> RemoveMemberFromConversationAsync(ConversationEventRequestDto conversationEventRequestDto);
+        Task<Result<object>> IsMemberInConversation(Guid conversationId, Guid userId);
+        Task<PagedResult<ConversationMemberResponseDto>> GetMembersByConversationIdAsync(Guid conversationId);
+        Task<Result<ConversationMemberResponseDto>> AddMemberToConversationAsync(ConversationEventRequestDto conversationEventRequestDto);
+        Task<Result<ConversationMemberResponseDto>> UpdateMemberInConversationAsync(ConversationEventRequestDto conversationEventRequestDto);
+        Task<Result<object>> RemoveMemberFromConversationAsync(ConversationEventRequestDto conversationEventRequestDto);
         #endregion
     }
 }

@@ -1,19 +1,18 @@
 ﻿using ChatApp.Application.DTOs.Request;
 using ChatApp.Application.DTOs.Response;
 using ChatApp.Domain.Entities;
+using ChatApp.Shared.Common;
 
 namespace ChatApp.Application.Interfaces.Services
 {
     public interface IUserService : IGenericService<User, UserResponseDto>
     {
-        Task<UserResponseDto> GetCurrentUser(Guid userId);
-        Task<UserResponseDto?> GetByEmailAsync(string email);
-        Task<UserResponseDto?> GetByUsername(string username);
-        Task<FcmTokenResponseDto> RegisterFcmTokenAsync(Guid userId, FcmTokenRequestDto fcmTokenRequestDto);
-        Task<FcmTokenResponseDto> UnregisterFcmTokenAsync(Guid userId, FcmTokenRequestDto fcmTokenRequestDto);
+        Task<Result<UserResponseDto>> GetCurrentUser();
+        Task<Result<UserResponseDto>> GetByEmailAsync(string email, bool isFromAuthAction = true);
+        Task<Result<UserResponseDto>> GetByUsername(string username, bool isFromAuthAction = true);
+        Task<Result<FcmTokenResponseDto>> RegisterFcmTokenAsync(Guid userId, FcmTokenRequestDto fcmTokenRequestDto);
+        Task<Result<FcmTokenResponseDto>> UnregisterFcmTokenAsync(Guid userId, FcmTokenRequestDto fcmTokenRequestDto);
         Task<bool> ComparePasswordAsync(Guid userId, string password);
-        Task ChangePasswordAsync(Guid userId, ChangePasswordRequestDto changePasswordRequestDto);
-        Task ResetPasswordAsync(Guid userId, ResetPasswordRequestDto resetPasswordRequestDto);
-        Task DeleteAccountAsync(Guid currentUserId, Guid uid);
+        Task<Result<object>> DeleteAccountAsync();
     }
 }

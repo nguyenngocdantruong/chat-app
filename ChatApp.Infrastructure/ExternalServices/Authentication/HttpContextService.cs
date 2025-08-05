@@ -21,7 +21,8 @@ namespace ChatApp.Infrastructure.ExternalServices.Authentication
                 {
                     return userId;
                 }
-                throw new InvalidCredentialException("Unauthorized");
+
+                throw new UnAuthorizedException("Unauthorized.");
             }
         }
 

@@ -25,7 +25,11 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Authentication;
 using System.Text;
+using ChatApp.Application.Authorization;
 using ChatApp.Application.Interfaces.Authentication;
+using ChatApp.Application.Interfaces.Authorization;
+using ChatApp.Infrastructure.Decorators.Authentication;
+using ChatApp.Infrastructure.Decorators.Logging;
 using ChatApp.Infrastructure.ExternalServices.Authentication;
 
 namespace ChatApp.Infrastructure
@@ -120,12 +124,14 @@ namespace ChatApp.Infrastructure
             //services.AddScoped<DbContext, AppDbContext>();
 
             // Register mapper
+            services.AddScoped<IFriendMapper, FriendMapper>();
             services.AddScoped<IRefreshTokenMapper, RefreshTokenMapper>();
             services.AddScoped<IUserMapper, UserMapper>();
 
             // Register repositories
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IAuditLogRepository, AuditLogRepository>();
+            services.AddScoped<IFriendRepository, FriendRepository>();
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
 
@@ -135,11 +141,21 @@ namespace ChatApp.Infrastructure
             //Register Services
             //services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
             services.AddScoped<IAuditLogService, AuditLogService>();
-            services.AddSingleton<ITokenService, JwtTokenService>();
-            services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IFriendService, FriendService>();
             services.AddScoped<IMailService, MailConsoleService>();
             services.AddScoped<IRefreshTokenService, RefreshTokenService>();
+            services.AddSingleton<ITokenService, JwtTokenService>();
+            services.AddScoped<IUserService, UserService>();
+
+            //Register authorization handlers
+            services.AddScoped<IAuthorizationHandler<User>, UserAuthorizationHandler>();
+
+            //Register logging decorators
+            services.Decorate<IAuthService, LoggingAuthServiceDecorator>();
+
+            //Register authorization decorators
+            services.Decorate<IAuthService, AuthorizationAuthServiceDecorator>();
 
 
             //Register SignalR

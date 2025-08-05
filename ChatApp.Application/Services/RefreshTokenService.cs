@@ -11,11 +11,12 @@ using ChatApp.Shared.Configurations;
 namespace ChatApp.Application.Services
 {
     public class RefreshTokenService(
+        IRefreshTokenRepository refreshTokenRepository,
         IUnitOfWork unitOfWork,
         IUserService userService,
         ITokenService tokenService,
         ITokenSetting tokenSetting,
-        IRefreshTokenMapper mapper) : GenericService<RefreshToken, RefreshTokenResponseDto>(unitOfWork, mapper), IRefreshTokenService
+        IRefreshTokenMapper mapper) : GenericService<RefreshToken, RefreshTokenResponseDto>(unitOfWork, refreshTokenRepository, mapper), IRefreshTokenService
     {
         private readonly IUserService _userService = userService ?? throw new Domain.Exceptions.Runtime.ArgumentNullException(nameof(userService));
         private readonly ITokenService _tokenService = tokenService ?? throw new Domain.Exceptions.Runtime.ArgumentNullException(nameof(tokenService));
@@ -23,7 +24,7 @@ namespace ChatApp.Application.Services
 
         public async Task<IEnumerable<RefreshTokenResponseDto>> GetActiveRefreshTokens(Guid userId)
         {
-            var result = await UnitOfWork.RefreshTokenRepository.GetAllTokenActiveByUserIdAsync(userId);
+            var result = await refreshTokenRepository.GetAllTokenActiveByUserIdAsync(userId);
             return result.Select(m => new RefreshTokenResponseDto()
             {
                 Guid = m.Guid,
@@ -36,13 +37,12 @@ namespace ChatApp.Application.Services
 
         public async Task RevokeAllActiveTokens(Guid userId)
         {
-            await UnitOfWork.RefreshTokenRepository.RevokeAllTokenByUserIdAsync(userId);
-            await UnitOfWork.SaveChangesAsync();
+            await refreshTokenRepository.RevokeAllTokenByUserIdAsync(userId);
         }
 
         public async Task RevokeToken(Guid tokenId)
         {
-            RefreshToken? token = await UnitOfWork.RefreshTokenRepository.GetByIdAsync(tokenId);
+            RefreshToken? token = await refreshTokenRepository.GetByIdAsync(tokenId);
             if (token == null)
             {
                 throw new RecordNotFoundException($"Refresh token not found with ID {tokenId}");
@@ -78,12 +78,7 @@ namespace ChatApp.Application.Services
                     CreatedAt = DateTime.UtcNow,
                     UserId = requestDto.UserId
                 };
-                await UnitOfWork.RefreshTokenRepository.AddAsync(newRefreshToken);
-                var recordSave = await UnitOfWork.SaveChangesAsync();
-                if (recordSave < 2)
-                {
-                    throw new DatabaseOperationException("Cannot rotation refresh token");
-                }
+                await refreshTokenRepository.AddAsync(newRefreshToken);
 
                 TokenResponseDto tokenResponseDto = new TokenResponseDto()
                 {

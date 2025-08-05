@@ -8,6 +8,6 @@ namespace ChatApp.Application.Interfaces.Services
 {
     public interface IAuditLogService
     {
-        Task SaveLogAsync(string action, Guid userId, Guid targetId, string? note);
+        Task SaveLogAsync(string action, Guid? userId, Guid? targetId, string? note);
     }
 }

@@ -14,7 +14,8 @@ namespace ChatApp.Api.Controllers
     [Route("api/[controller]")]
     public class AuthController(IAuthService authService) : ControllerBase
     {
-        private readonly IAuthService _authService = authService ?? throw new ArgumentNullException(nameof(authService));
+        private readonly IAuthService
+            _authService = authService ?? throw new ArgumentNullException(nameof(authService));
 
         [HttpPost("login")]
         [ProducesResponseType(typeof(ResponseDto<LoginResponseDto>), StatusCodes.Status200OK)]
@@ -39,7 +40,7 @@ namespace ChatApp.Api.Controllers
             else
             {
                 var data = await _authService.LoginWith2FaAsync(loginRequestDto);
-                if (data.IsSuccess )
+                if (data.IsSuccess)
                 {
                     return ResponseJson.Ok(data.Data, "Login successfully", true);
                 }
@@ -49,6 +50,7 @@ namespace ChatApp.Api.Controllers
                 }
             }
         }
+
         [HttpPost("pre-register")]
         [Consumes("application/json")]
         [ProducesResponseType(typeof(ResponseDto<PreRegisterResponseDto>), StatusCodes.Status200OK)]
@@ -61,6 +63,7 @@ namespace ChatApp.Api.Controllers
             {
                 return ResponseJson.Ok(result.Data, result.Message, true);
             }
+
             return ResponseJson.BadRequest(null, result.Message);
         }
 
@@ -68,7 +71,8 @@ namespace ChatApp.Api.Controllers
         [Consumes("multipart/form-data")]
         [ProducesResponseType(typeof(ResponseDto<LoginResponseDto>), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Register([FromForm] RegisterRequestDto registerRequestDto, IFormFile? avatarFile)
+        public async Task<IActionResult> Register([FromForm] RegisterRequestDto registerRequestDto,
+            IFormFile? avatarFile)
         {
             AttachmentRequestDto? attachmentRequestDto = null;
             if (avatarFile != null && avatarFile.Length > 0)
@@ -81,24 +85,99 @@ namespace ChatApp.Api.Controllers
                     FileBytes = bytes
                 };
             }
+
             var result = await _authService.RegisterAsync(registerRequestDto, attachmentRequestDto);
             if (result.IsSuccess)
             {
                 return ResponseJson.Created(result.Data, result.Message, true);
             }
+
+            return ResponseJson.BadRequest(null, result.Message);
+        }
+
+        [HttpPost("resend-email")]
+        [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> ResendEmail([FromBody] ResendEmailRequestDto resendEmailRequestDto)
+        {
+            var result = await _authService.ResendEmailAsync(resendEmailRequestDto);
+            if (result.IsSuccess)
+            {
+                return ResponseJson.Ok(null, result.Message, true);
+            }
+
             return ResponseJson.BadRequest(null, result.Message);
         }
 
         [HttpPost("refresh")]
         [ProducesResponseType(typeof(ResponseDto<TokenResponseDto>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> RefreshAccessToken([FromBody] RefreshAccessTokenRequestDto refreshAccessTokenRequestDto)
+        public async Task<IActionResult> RefreshAccessToken(
+            [FromBody] RefreshAccessTokenRequestDto refreshAccessTokenRequestDto)
         {
             var result = await _authService.RefreshAccessTokenAsync(refreshAccessTokenRequestDto);
             if (result.IsSuccess)
             {
                 return ResponseJson.Ok(result.Data, result.Message, true);
             }
+
             return ResponseJson.Unauthorized(null, result.Message, false);
+        }
+
+        [Authorize]
+        [HttpPost("change-password")]
+        [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordRequestDto changePasswordRequestDto)
+        {
+            var result = await _authService.ChangePasswordAsync(changePasswordRequestDto);
+            if (result.IsSuccess)
+            {
+                return ResponseJson.Ok(result.Data, result.Message, true);
+            }
+
+            return ResponseJson.BadRequest(null, result.Message);
+        }
+
+        [HttpPost("forgot-password")]
+        [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordRequestDto forgotPasswordRequestDto)
+        {
+            var result = await _authService.ForgotPasswordAsync(forgotPasswordRequestDto);
+            if (result.IsSuccess)
+            {
+                return ResponseJson.Ok(result.Data, result.Message, true);
+            }
+
+            return ResponseJson.BadRequest(null, result.Message);
+        }
+
+        [HttpPost("reset-password")]
+        [ProducesResponseType(typeof(ResponseDto<LoginResponseDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequestDto resetPasswordRequestDto)
+        {
+            var result = await _authService.ResetPasswordAsync(resetPasswordRequestDto);
+            if (result.IsSuccess)
+            {
+                return ResponseJson.Ok(result.Data, result.Message, true);
+            }
+
+            return ResponseJson.BadRequest(null, result.Message);
+        }
+
+        [Authorize]
+        [HttpPost("logout")]
+        [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Logout()
+        {
+            var result = await _authService.LogoutAsync();
+            if (result.IsSuccess)
+            {
+                return ResponseJson.Ok(result.Data, result.Message, true);
+            }
+
+            return ResponseJson.BadRequest(null, result.Message);
         }
     }
 }

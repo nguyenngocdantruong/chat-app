@@ -16,7 +16,6 @@ namespace ChatApp.Api.Hubs
 
         public async Task SendMessage(MessageRequestDto messageRequest)
         {
-            Guid userId = currentUserService.UserId.Value;
 
         }
     }

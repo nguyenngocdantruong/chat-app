@@ -8,17 +8,20 @@ using ChatApp.Domain.Interfaces;
 
 namespace ChatApp.Application.Services
 {
-    public class AuditLogService(IUnitOfWork uow): IAuditLogService
+    public class AuditLogService(IUnitOfWork uow, IAuditLogRepository auditLogRepository): IAuditLogService
     {
-        public async Task SaveLogAsync(string action, Guid userId, Guid targetId, string? note)
+        public async Task SaveLogAsync(string action, Guid? userId, Guid? targetId, string? note)
         {
-            await uow.AuditLogRepository.SaveLogAsync(new Domain.Entities.AuditLog
-            {
-                UserId = userId,
-                TargetId = targetId,
-                Action = action,
-                Note = note
-            });
+            //await auditLogRepository.SaveLogAsync(new Domain.Entities.AuditLog
+            //{
+            //    UserId = userId,
+            //    TargetId = targetId,
+            //    Action = action,
+            //    Note = note
+            //});
+            //await uow.SaveChangesAsync();
+            Console.WriteLine($"[LOGGING]: {action} - {note} - {DateTime.UtcNow.ToLocalTime():HH:mm:ss}");
+            await Task.CompletedTask;
         }
     }
 }

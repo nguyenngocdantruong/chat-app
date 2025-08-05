@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ChatApp.Application.DTOs.Result
+﻿namespace ChatApp.Shared.Common
 {
     public class Result<T>
     {
         public string Message { get; set; } = "";
         public bool IsSuccess { get; set; } = true;
         public T? Data { get; set; }
+
+        public int Code { get; set; } = 200; // Default to 200 OK
 
         public Result()
         {
@@ -23,12 +19,12 @@ namespace ChatApp.Application.DTOs.Result
             Data = data;
         }
 
-        public static Result<T> Success(string message, T? data = default)
+        public static Result<T> Success(string message, T? data = default, int code = 200)
         {
             return new Result<T>(message, true, data);
         }
 
-        public static Result<T> Failure(string message, T? data = default)
+        public static Result<T> Failure(string message, T? data = default, int code = 400)
         {
             return new Result<T>(message, false, data);
         }

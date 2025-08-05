@@ -1,13 +1,9 @@
-﻿using Azure;
-using ChatApp.Api.Response;
-using ChatApp.Application.DTOs.Response;
+﻿using ChatApp.Api.Response;
 using ChatApp.Application.Interfaces.Services;
-using ChatApp.Domain.Exceptions;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ChatApp.Controllers
+namespace ChatApp.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -18,15 +14,15 @@ namespace ChatApp.Controllers
         [ProducesResponseType(typeof(ResponseDto<object>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ResponseDto<object>),StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ResponseDto<object>),StatusCodes.Status401Unauthorized)]
-        public async Task<JsonResult> GetCurrentUser()
+        public async Task<IActionResult> GetCurrentUser()
         {
-            var userId = Guid.Parse(User.FindFirst("UserId")?.Value ?? throw new InvalidOperationException("UserId claim not found."));
-            var user = await userService.GetCurrentUser(userId);
-            if (user == null)
+            var result = await userService.GetCurrentUser();
+            if (result.IsSuccess)
             {
-                return new JsonResult(new { message = "User not found" }) { StatusCode = StatusCodes.Status404NotFound };
+                return ResponseJson.Ok(result.Data, result.Message, true);
             }
-            return new JsonResult(user) { StatusCode = StatusCodes.Status200OK };
+
+            return ResponseJson.BadRequest(null, result.Message);
         }
     }
 }

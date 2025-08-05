@@ -1,6 +1,4 @@
-﻿using ChatApp.Application.DTOs.Result;
-
-namespace ChatApp.Shared.Common
+﻿namespace ChatApp.Shared.Common
 {
     public class PagedResult<T> : Result<T>
     {
