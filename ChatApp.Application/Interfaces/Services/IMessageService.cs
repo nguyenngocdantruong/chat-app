@@ -14,5 +14,6 @@ namespace ChatApp.Application.Interfaces.Services
         Task<Result<object>> ReadMessageAsync(Guid userId, Guid messageId);
 
 
+        Task<Result<MessageResponseDto>> GetMessageByIdAsync(Guid id);
     }
 }

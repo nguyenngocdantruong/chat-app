@@ -1,4 +1,5 @@
-﻿using ChatApp.Application.DTOs.Request;
+﻿using ChatApp.Application.DTOs.Filter;
+using ChatApp.Application.DTOs.Request;
 using ChatApp.Application.DTOs.Response;
 using ChatApp.Application.Interfaces.Authentication;
 using ChatApp.Application.Interfaces.Mapper;
@@ -90,6 +91,11 @@ namespace ChatApp.Application.Services
             return result;
         }
 
+        public Task<Result<UserResponseDto>> GetByUid(Guid uid, bool isFromAuthAction = true)
+        {
+            throw new NotImplementedException();
+        }
+
         Task<Result<FcmTokenResponseDto>> IUserService.RegisterFcmTokenAsync(Guid userId, FcmTokenRequestDto fcmTokenRequestDto)
         {
             throw new NotImplementedException();
@@ -128,6 +134,16 @@ namespace ChatApp.Application.Services
                 Message = "Account deleted successfully",
                 Data = null
             };
+        }
+
+        public Task<Result<UserResponseDto>> UpdateProfileAsync(UpdateProfileRequestDto userUpdateRequestDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<PagedResult<UserResponseDto>> Filter(UserFilter paginationRequestDto)
+        {
+            throw new NotImplementedException();
         }
     }
 }

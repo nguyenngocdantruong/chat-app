@@ -13,5 +13,6 @@ namespace ChatApp.Application.Interfaces.Services
         Task<Result<FriendResponseDto>> CreateFriendAsync(FriendUpdateRequestDto requestDto);
         Task<Result<FriendResponseDto>> UpdateFriendAsync(FriendUpdateRequestDto requestDto);
         Task<Result<object>> RemoveFriendAsync(Guid friendId);
+        Task<PagedResult<FriendResponseDto>> Filter(FriendFilter filter);
     }
 }

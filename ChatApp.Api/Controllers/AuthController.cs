@@ -12,49 +12,49 @@ namespace ChatApp.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status400BadRequest)]
     public class AuthController(IAuthService authService) : ControllerBase
     {
         private readonly IAuthService
             _authService = authService ?? throw new ArgumentNullException(nameof(authService));
 
-        [HttpPost("login")]
-        [ProducesResponseType(typeof(ResponseDto<LoginResponseDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ResponseDto<string>), StatusCodes.Status207MultiStatus)]
-        [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status401Unauthorized)]
-        public async Task<IActionResult> Login([FromBody] LoginRequestDto loginRequestDto)
+        [HttpPost("pre-login")]
+        [ProducesResponseType(typeof(ResponseDto<LoginResponseDto>), StatusCodes.Status207MultiStatus)]
+        public async Task<IActionResult> PreLogin([FromBody] PreLoginRequestDto loginRequestDto)
         {
             // Login without 2FA code
-            if (string.IsNullOrEmpty(loginRequestDto.Code) && string.IsNullOrEmpty(loginRequestDto.TransactionId))
+            var data = await _authService.LoginFirstStep(loginRequestDto);
+            if (data.IsSuccess)
             {
-                var data = await _authService.LoginFirstStep(loginRequestDto);
-                if (data.IsSuccess)
-                {
-                    return ResponseJson.MultiStatus(data.Data, data.Message, true);
-                }
-                else
-                {
-                    return ResponseJson.Unauthorized(null, data.Message, false);
-                }
+                return ResponseJson.MultiStatus(data.Data, data.Message, true);
             }
-            // Login with 2FA code
             else
             {
-                var data = await _authService.LoginWith2FaAsync(loginRequestDto);
-                if (data.IsSuccess)
-                {
-                    return ResponseJson.Ok(data.Data, "Login successfully", true);
-                }
-                else
-                {
-                    return ResponseJson.Unauthorized(data.Data, data.Message, false);
-                }
+                return ResponseJson.Unauthorized(null, data.Message, false);
+            }
+          
+        }
+
+        [HttpPost("login")]
+        [ProducesResponseType(typeof(ResponseDto<LoginResponseDto>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> Login([FromBody] LoginRequestDto loginRequestDto)
+        {
+            // Login with 2FA code
+            var data = await _authService.LoginWith2FaAsync(loginRequestDto);
+            if (data.IsSuccess)
+            {
+                return ResponseJson.Ok(data.Data, "Login successfully", true);
+            }
+            else
+            {
+                return ResponseJson.Unauthorized(data.Data, data.Message, false);
             }
         }
 
         [HttpPost("pre-register")]
         [Consumes("application/json")]
-        [ProducesResponseType(typeof(ResponseDto<PreRegisterResponseDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ResponseDto<PreRegisterResponseDto>), StatusCodes.Status207MultiStatus)]
         [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status409Conflict)]
         public async Task<IActionResult> PreRegister([FromBody] PreRegisterRequestDto preRegisterRequestDto)
         {
@@ -70,7 +70,6 @@ namespace ChatApp.Api.Controllers
         [HttpPost("register")]
         [Consumes("multipart/form-data")]
         [ProducesResponseType(typeof(ResponseDto<LoginResponseDto>), StatusCodes.Status201Created)]
-        [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Register([FromForm] RegisterRequestDto registerRequestDto,
             IFormFile? avatarFile)
         {
@@ -125,7 +124,6 @@ namespace ChatApp.Api.Controllers
         [Authorize]
         [HttpPost("change-password")]
         [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordRequestDto changePasswordRequestDto)
         {
             var result = await _authService.ChangePasswordAsync(changePasswordRequestDto);
@@ -139,7 +137,6 @@ namespace ChatApp.Api.Controllers
 
         [HttpPost("forgot-password")]
         [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordRequestDto forgotPasswordRequestDto)
         {
             var result = await _authService.ForgotPasswordAsync(forgotPasswordRequestDto);
@@ -153,7 +150,6 @@ namespace ChatApp.Api.Controllers
 
         [HttpPost("reset-password")]
         [ProducesResponseType(typeof(ResponseDto<LoginResponseDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequestDto resetPasswordRequestDto)
         {
             var result = await _authService.ResetPasswordAsync(resetPasswordRequestDto);
@@ -168,7 +164,6 @@ namespace ChatApp.Api.Controllers
         [Authorize]
         [HttpPost("logout")]
         [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Logout()
         {
             var result = await _authService.LogoutAsync();

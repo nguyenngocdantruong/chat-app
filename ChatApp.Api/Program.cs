@@ -34,6 +34,16 @@ namespace ChatApp.Api
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder =>
+                {
+                    builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                });
+            });
+
             var app = builder.Build();
 
 
@@ -55,6 +65,8 @@ namespace ChatApp.Api
 
             app.MapControllers();
             app.MapHub<ChatHub>("/chatHub");
+
+            app.UseCors("CorsPolicy");
 
             app.Run();
         }

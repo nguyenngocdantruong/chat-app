@@ -15,7 +15,7 @@ namespace ChatApp.Infrastructure.Decorators.Authentication
 {
     public class AuthorizationAuthServiceDecorator(IUserRepository repository, IAuthService authService, ICurrentUserService currentUserService, IAuthorizationHandler<User> handler) : AuthorizationDecoratorBase<User>(authService, currentUserService, handler), IAuthService
     {
-        public Task<Result<LoginResponseDto>> LoginFirstStep(LoginRequestDto loginRequestDto)
+        public Task<Result<LoginResponseDto>> LoginFirstStep(PreLoginRequestDto loginRequestDto)
         {
             return AuthService.LoginFirstStep(loginRequestDto);
         }

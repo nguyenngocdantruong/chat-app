@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 public class ConversationEvent : BaseEntity
 {
-    public ConverstationEventType Type { get; set; } 
+    public ConversationEventType Type { get; set; } 
     public Guid ConversationId { get; set; }              
     public Guid? UserId { get; set; }                     
     public Guid? TargetUserId { get; set; }              

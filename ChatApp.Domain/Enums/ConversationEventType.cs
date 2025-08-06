@@ -1,6 +1,6 @@
 ﻿namespace ChatApp.Domain.Enums
 {
-    public enum ConverstationEventType
+    public enum ConversationEventType
     {
         #region Conversation Events
         Created,

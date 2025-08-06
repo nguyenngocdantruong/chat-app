@@ -48,5 +48,10 @@ namespace ChatApp.Application.Services
         {
             throw new NotImplementedException();
         }
+
+        public Task<PagedResult<FriendResponseDto>> Filter(FriendFilter filter)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

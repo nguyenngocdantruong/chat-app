@@ -2,6 +2,6 @@
 {
     public abstract class BaseRequestDto
     {
-        public Guid? Id { get; set; }
+        public Guid? TransactionId { get; set; }
     }
 }

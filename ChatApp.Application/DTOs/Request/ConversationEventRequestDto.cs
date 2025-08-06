@@ -2,11 +2,11 @@
 
 namespace ChatApp.Application.DTOs.Request
 {
-    public class ConversationEventRequestDto : BaseRequestDto
+    public class ConversationEventRequestDto<T> : BaseRequestDto
     {
-        public ConverstationEventType Type { get; set; }
+        public ConversationEventType Type { get; set; }
         public Guid ConversationId { get; set; }
         public Guid? TargetId { get; set; }
-        public object? EventData { get; set; }
+        public T? EventData { get; set; }
     }
 }

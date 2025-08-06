@@ -14,7 +14,7 @@ namespace ChatApp.Infrastructure.Decorators.Logging
         IAuditLogService auditLogService,
         ICurrentUserService currentUserService) : IAuthService
     {
-        public Task<Result<LoginResponseDto>> LoginFirstStep(LoginRequestDto loginRequestDto)
+        public Task<Result<LoginResponseDto>> LoginFirstStep(PreLoginRequestDto loginRequestDto)
         {
             auditLogService.SaveLogAsync("LoginAttempt", null, null, "User attempted to log in.");
             return authService.LoginFirstStep(loginRequestDto);

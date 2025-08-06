@@ -12,12 +12,13 @@ namespace ChatApp.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status401Unauthorized)]
+[ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status404NotFound)]
 public class DataController(ICacheService<string> cacheService, IMailService mailService)
     : ControllerBase
 {
     [HttpGet("otp")]
     [ProducesResponseType(typeof(ResponseDto<string>), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(ResponseDto<>), StatusCodes.Status404NotFound)]
     public IActionResult GetOtp(string transactionId)
     {
         return ResponseJson.Ok(cacheService.Get(transactionId));
