@@ -36,7 +36,7 @@ namespace ChatApp.Application.Services
         ICurrentUserService currentUserService) : IAuthService
     {
 
-        public async Task<Result<LoginResponseDto>> LoginFirstStep(LoginRequestDto loginRequestDto)
+        public async Task<Result<LoginResponseDto>> LoginFirstStep(PreLoginRequestDto loginRequestDto)
         {
             // Validate the login request
             if (string.IsNullOrWhiteSpace(loginRequestDto.Email) || string.IsNullOrWhiteSpace(loginRequestDto.Password))

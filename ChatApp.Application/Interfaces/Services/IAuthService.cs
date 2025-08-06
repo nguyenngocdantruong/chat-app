@@ -7,7 +7,7 @@ namespace ChatApp.Application.Interfaces.Services
 {
     public interface IAuthService
     {
-        Task<Result<LoginResponseDto>> LoginFirstStep(LoginRequestDto loginRequestDto);
+        Task<Result<LoginResponseDto>> LoginFirstStep(PreLoginRequestDto loginRequestDto);
         Task<Result<LoginResponseDto>> LoginWith2FaAsync(LoginRequestDto loginRequestDto);
         Task<Result<object>> ResendEmailAsync(ResendEmailRequestDto resendEmailRequestDto);
         Task<Result<PreRegisterResponseDto>> PreRegisterAsync(PreRegisterRequestDto preRegisterRequestDto);

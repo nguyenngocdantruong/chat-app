@@ -38,6 +38,16 @@ namespace ChatApp.Application.Mapper
             return user;
         }
 
+        public FcmTokenResponseDto MapToFcmTokenResponseDto(FcmToken token)
+        {
+            throw new NotImplementedException();
+        }
+
+        public FcmToken MapToFcmToken(FcmTokenRequestDto requestDto, FcmToken token)
+        {
+            throw new NotImplementedException();
+        }
+
         public User Map(ResetPasswordRequestDto requestDto, User user)
         {
             user.PasswordHash = PasswordHasher.Hash(requestDto.NewPassword);
