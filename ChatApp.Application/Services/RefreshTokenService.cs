@@ -62,12 +62,8 @@ namespace ChatApp.Application.Services
             var token = lstTokens.FirstOrDefault(m => m.Token.Equals(requestDto.RefreshToken));
             if (token != null)
             {
-                if (token.Guid == null)
-                {
-                    throw new RecordNotFoundException($"Refresh token not found with ID {token.Guid}");
-                }
                 //Revoke the old token
-                await RevokeToken(token.Guid.Value);
+                await RevokeToken(token.Guid);
                 var expRefToken = DateTime.UtcNow.AddDays(_tokenSetting.RefreshTokenExpirationDays);
                 RefreshToken newRefreshToken = new RefreshToken()
                 {

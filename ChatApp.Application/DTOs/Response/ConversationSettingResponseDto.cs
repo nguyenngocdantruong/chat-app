@@ -2,7 +2,7 @@
 
 namespace ChatApp.Application.DTOs.Response
 {
-    public partial class ConversationSettingResponseDto
+    public partial class ConversationSettingResponseDto : BaseResponseDto
     {
         public Guid? UserId { get; set; }
 

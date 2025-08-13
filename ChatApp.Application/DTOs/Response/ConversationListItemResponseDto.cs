@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChatApp.Application.DTOs.Response
 {
-    public class ConversationListItemResponseDto
+    public class ConversationListItemResponseDto : BaseResponseDto
     {
         public string? Name { get; set; }
         public string? AvatarUrl { get; set; }

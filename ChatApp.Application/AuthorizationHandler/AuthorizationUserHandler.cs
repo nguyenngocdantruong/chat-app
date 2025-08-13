@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ChatApp.Application.Interfaces.Authorization;
+﻿using ChatApp.Application.Interfaces.Authorization;
 using ChatApp.Domain.Entities;
 using ChatApp.Domain.Enums;
 
-namespace ChatApp.Application.Authorization
+namespace ChatApp.Application.AuthorizationHandler
 {
-    public class UserAuthorizationHandler : IAuthorizationHandler<User>
+    public class AuthorizationUserHandler : IAuthorizationHandler<User>
     {
         public Task<bool> AuthorizeAsync(User resource, Permission permission, Guid? requestUserGuid = null)
         {
@@ -28,6 +23,16 @@ namespace ChatApp.Application.Authorization
                 default:
                     return Task.FromResult(false);
             }
+        }
+
+        public Task<bool> AuthorizeAsync(Permission permission, Guid? requestUserGuid = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> AuthorizeAsync(Guid idResource, Permission permission, Guid? requestUserGuid = null)
+        {
+            throw new NotImplementedException();
         }
     }
 }

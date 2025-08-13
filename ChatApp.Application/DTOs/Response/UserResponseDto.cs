@@ -6,12 +6,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ChatApp.Application.DTOs.Response 
 {
-    public partial class UserResponseDto
+    public class UserResponseDto : BaseResponseDto
     {
-        public Guid Guid { get; set; }
         public string Username { get; set; } = null!;
-        public string? Email { get; set; }
-        public string? Phone { get; set; }
+        public string Email { get; set; } = string.Empty;
+        public string Phone { get; set; } = string.Empty;
         public AttachmentResponseDto? Avatar { get; set; }
         public string? DisplayName { get; set; }
         public bool? IsSearchable { get; set; } = true;

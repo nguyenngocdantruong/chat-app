@@ -19,7 +19,7 @@ namespace ChatApp.Api.Controllers
         private readonly IAuthService
             _authService = authService ?? throw new ArgumentNullException(nameof(authService));
 
-        [HttpPost("pre-login")]
+        [HttpPost("login")]
         [ProducesResponseType(typeof(ResponseDto<LoginResponseDto>), StatusCodes.Status207MultiStatus)]
         public async Task<IActionResult> PreLogin([FromBody] PreLoginRequestDto loginRequestDto)
         {
@@ -36,21 +36,21 @@ namespace ChatApp.Api.Controllers
           
         }
 
-        [HttpPost("login")]
-        [ProducesResponseType(typeof(ResponseDto<LoginResponseDto>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> Login([FromBody] LoginRequestDto loginRequestDto)
-        {
-            // Login with 2FA code
-            var data = await _authService.LoginWith2FaAsync(loginRequestDto);
-            if (data.IsSuccess)
-            {
-                return ResponseJson.Ok(data.Data, "Login successfully", true);
-            }
-            else
-            {
-                return ResponseJson.Unauthorized(data.Data, data.Message, false);
-            }
-        }
+        //[HttpPost("login")]
+        //[ProducesResponseType(typeof(ResponseDto<LoginResponseDto>), StatusCodes.Status200OK)]
+        //public async Task<IActionResult> Login([FromBody] LoginRequestDto loginRequestDto)
+        //{
+        //    // Login with 2FA code
+        //    var data = await _authService.LoginWith2FaAsync(loginRequestDto);
+        //    if (data.IsSuccess)
+        //    {
+        //        return ResponseJson.Ok(data.Data, "Login successfully", true);
+        //    }
+        //    else
+        //    {
+        //        return ResponseJson.Unauthorized(data.Data, data.Message, false);
+        //    }
+        //}
 
         [HttpPost("pre-register")]
         [Consumes("application/json")]

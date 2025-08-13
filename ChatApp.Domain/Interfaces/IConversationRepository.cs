@@ -1,4 +1,5 @@
 ﻿using ChatApp.Domain.Entities;
+using ChatApp.Domain.Enums;
 
 namespace ChatApp.Domain.Interfaces
 {

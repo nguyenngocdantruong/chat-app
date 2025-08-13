@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace ChatApp.Application.DTOs.Response
 {
-    public class RefreshTokenResponseDto
+    public class RefreshTokenResponseDto : BaseResponseDto
     {
-        public Guid? Guid { get; set; }
         public Guid? UserId { get; set; }
         public string Token { get; set; } = string.Empty;
         public DateTime ExpirationDate { get; set; }

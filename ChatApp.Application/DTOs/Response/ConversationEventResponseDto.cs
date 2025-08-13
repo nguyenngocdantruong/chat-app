@@ -2,7 +2,7 @@
 
 namespace ChatApp.Application.DTOs.Response;
 
-public class ConversationEventResponseDto
+public class ConversationEventResponseDto : BaseResponseDto
 {
     public Guid Id { get; set; }
     public ConversationEventType Type { get; set; } 

@@ -2,7 +2,7 @@
 
 namespace ChatApp.Application.DTOs.Response;
 
-public partial class FriendResponseDto
+public partial class FriendResponseDto : BaseResponseDto
 {
     public Guid? RequesterId { get; set; }
 

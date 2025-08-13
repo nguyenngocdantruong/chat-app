@@ -7,7 +7,7 @@ namespace ChatApp.Domain.Entities
 {
     public partial class Attachment : BaseEntity
     {
-        public Guid? MessageId { get; set; }
+        public Guid? ConversationId { get; set; }
 
         [StringLength(2000)]
         public string? FileUrl { get; set; }

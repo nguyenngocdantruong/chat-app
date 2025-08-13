@@ -49,22 +49,45 @@ namespace ChatApp.Application.Services
             {
                 return Result<LoginResponseDto>.Failure("User with that email doesn't exists");
             }
-
             Result<LoginResponseDto> result = new();
             //Validate the user password
             if (user.Email != null && user.Email.Equals(loginRequestDto.Email) &&
                 await userService.ComparePasswordAsync(user.Guid, loginRequestDto.Password))
             {
-                //Send email
-                string otpRandom = ItemGenerator.GenerateOtp(length: 6);
-                await mailService.SendOtp(user.Email, otpRandom, ActionType.Login);
-                // Generate a transaction ID for the first step of login
-                string transactionId = ItemGenerator.GenerateRandom();
-                await cacheService.Set(transactionId, otpRandom, TimeSpan.FromMinutes(15));
-                loginResponseDto.TransactionId = transactionId;
-                result.IsSuccess = true;
-                result.Data = loginResponseDto;
-                result.Message = "Please input 2FA OTP code sent to your email.";
+                // Generate JWT token
+                string token = tokenService.GenerateToken(user.Guid, user.Email);
+                string refreshToken = tokenService.GenerateRefreshToken();
+
+                // Update the user's refresh token and expiry date
+                await refreshTokenService.CreateAsync(new RefreshToken()
+                {
+                    UserId = user.Guid,
+                    Token = refreshToken,
+                    ExpirationDate = DateTime.UtcNow.AddDays(tokenSetting.RefreshTokenExpirationDays),
+                    IsRevoked = false,
+                    IsDeleted = false
+                });
+
+                await unitOfWork.SaveChangesAsync();
+
+                loginResponseDto = new LoginResponseDto
+                {
+                    Token = new TokenResponseDto()
+                    {
+                        AccessToken = token,
+                        AccessTokenExpiry = DateTime.UtcNow.AddMinutes(tokenSetting.ExpirationMinutes),
+                        RefreshToken = refreshToken,
+                        RefreshTokenExpiry = DateTime.UtcNow.AddDays(tokenSetting.RefreshTokenExpirationDays)
+                    },
+                    User = user,
+                    TransactionId = null // Clear transaction ID after successful login
+                };
+                result = new Result<LoginResponseDto>
+                {
+                    IsSuccess = true,
+                    Data = loginResponseDto,
+                    Message = "Login successful."
+                };
             }
             else
             {
@@ -72,8 +95,6 @@ namespace ChatApp.Application.Services
                 result.IsSuccess = false;
                 result.Message = "Invalid email or password.";
             }
-            loginResponseDto.User = null;
-            loginResponseDto.Token = null;
             return result;
         }
 
@@ -181,55 +202,23 @@ namespace ChatApp.Application.Services
             }
 
             Result<PreRegisterResponseDto> result;
-            //Check if the pre-register has transaction ID
-            if (!string.IsNullOrEmpty(preRegisterRequestDto.TransactionId))
+            string transactionId = ItemGenerator.GenerateRandom();
+            PreRegisterResponseDto preRegisterResponseDto = new PreRegisterResponseDto
             {
-                string otp = await cacheService.Get(preRegisterRequestDto.TransactionId);
-                // Validate the transaction ID and code
-                if (string.IsNullOrWhiteSpace(preRegisterRequestDto.TransactionId) || string.IsNullOrEmpty(otp))
-                {
-                    throw new BadRequestException("Invalid transaction ID or expired.");
-                }
-                if (string.IsNullOrWhiteSpace(preRegisterRequestDto.Code)
-                    || !preRegisterRequestDto.Code.Equals(otp, StringComparison.OrdinalIgnoreCase))
-                {
-                    throw new InvalidCredentialException("Invalid verification code.");
-                }
-                //Successfully verified the pre-registration request
-                await cacheService.Set(preRegisterRequestDto.TransactionId, preRegisterRequestDto.Email,
-                    TimeSpan.FromMinutes(5));
-                result = new Result<PreRegisterResponseDto>
-                {
-                    IsSuccess = true,
-                    Message = "Pre-registration successful. The request valid in 5 minutes.",
-                    Data = new PreRegisterResponseDto
-                    {
-                        Email = preRegisterRequestDto.Email,
-                        TransactionId = preRegisterRequestDto.TransactionId
-                    }
-                };
-            }
-            // Create new pre-register request
-            else
+                Email = preRegisterRequestDto.Email,
+                TransactionId = transactionId
+            };
+            // Generate a verification code and store it in cache
+            string verificationCode = ItemGenerator.GenerateOtp(length: 6);
+            await cacheService.Set(transactionId, verificationCode, TimeSpan.FromMinutes(15));
+            //Send email
+            await mailService.SendOtp(preRegisterRequestDto.Email, verificationCode, ActionType.Register);
+            result = new Result<PreRegisterResponseDto>
             {
-                string transactionId = ItemGenerator.GenerateRandom();
-                PreRegisterResponseDto preRegisterResponseDto = new PreRegisterResponseDto
-                {
-                    Email = preRegisterRequestDto.Email,
-                    TransactionId = transactionId
-                };
-                // Generate a verification code and store it in cache
-                string verificationCode = ItemGenerator.GenerateOtp(length: 6);
-                await cacheService.Set(transactionId, verificationCode, TimeSpan.FromMinutes(15));
-                //Send email
-                await mailService.SendOtp(preRegisterRequestDto.Email, verificationCode, ActionType.Register);
-                result = new Result<PreRegisterResponseDto>
-                {
-                    IsSuccess = true,
-                    Message = "Please check your email for the verification code.",
-                    Data = preRegisterResponseDto
-                };
-            }
+                IsSuccess = true,
+                Message = "Please check your email for the verification code.",
+                Data = preRegisterResponseDto
+            };
             return result;
         }
 

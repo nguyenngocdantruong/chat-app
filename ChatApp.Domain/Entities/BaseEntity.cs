@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ChatApp.Domain.Entities
 {
-    public class BaseEntity
+    public abstract class BaseEntity
     {
         [Key]
         public Guid Guid { get; set; } = Guid.NewGuid();

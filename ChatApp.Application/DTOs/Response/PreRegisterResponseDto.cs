@@ -1,7 +1,7 @@
 ﻿
 namespace ChatApp.Application.DTOs.Response
 {
-    public class PreRegisterResponseDto
+    public class PreRegisterResponseDto : BaseResponseDto
     {
         public string Email { get; set; } = null!;
         public string TransactionId { get; set; } = null!;

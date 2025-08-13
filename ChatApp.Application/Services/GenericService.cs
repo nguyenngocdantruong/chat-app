@@ -15,7 +15,7 @@ namespace ChatApp.Application.Services
 {
     public abstract class GenericService<TEntity, TResponseDto>(IUnitOfWork uow, IGenericRepository<TEntity> repository, IDtoMapper<TEntity, TResponseDto> mapper) : IGenericService<TEntity, TResponseDto>
         where TEntity : BaseEntity
-        where TResponseDto: class
+        where TResponseDto: BaseResponseDto
 
     {
         protected readonly IUnitOfWork UnitOfWork = uow;

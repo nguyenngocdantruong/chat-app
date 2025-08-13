@@ -2,9 +2,8 @@
 
 namespace ChatApp.Application.DTOs.Response
 {
-    public partial class ConversationMemberResponseDto
+    public class ConversationMemberResponseDto : BaseResponseDto
     {
-        public Guid Id { get; set; }
         public Guid? ConversationId { get; set; }
 
         public Guid? UserId { get; set; }

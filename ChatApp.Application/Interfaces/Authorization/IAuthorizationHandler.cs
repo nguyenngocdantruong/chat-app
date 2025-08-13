@@ -10,5 +10,7 @@ namespace ChatApp.Application.Interfaces.Authorization
     public interface IAuthorizationHandler<in TResource> where TResource : class
     {
         Task<bool> AuthorizeAsync(TResource resource, Permission permission, Guid? requestUserGuid = null);
+        Task<bool> AuthorizeAsync(Permission permission, Guid? requestUserGuid = null);
+        Task<bool> AuthorizeAsync(Guid idResource, Permission permission, Guid? requestUserGuid = null);
     }
 }

@@ -4,9 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ChatApp.Application.DTOs.Response
 {
-    public partial class MessageResponseDto
+    public partial class MessageResponseDto : BaseResponseDto
     {
-        public Guid? Id { get; set; }
         public Guid? ConversationId { get; set; }
 
         public Guid? SenderId { get; set; }

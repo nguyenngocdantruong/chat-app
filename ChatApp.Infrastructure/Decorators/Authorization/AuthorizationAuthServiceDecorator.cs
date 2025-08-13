@@ -1,19 +1,15 @@
-﻿using System;
-using System.Threading.Tasks;
-using ChatApp.Application.DTOs.Request;
+﻿using ChatApp.Application.DTOs.Request;
 using ChatApp.Application.DTOs.Response;
 using ChatApp.Application.Interfaces.Authentication;
 using ChatApp.Application.Interfaces.Authorization;
 using ChatApp.Application.Interfaces.Services;
-using ChatApp.Application.Services;
 using ChatApp.Domain.Entities;
-using ChatApp.Domain.Enums;
 using ChatApp.Domain.Interfaces;
 using ChatApp.Shared.Common;
 
-namespace ChatApp.Infrastructure.Decorators.Authentication
+namespace ChatApp.Infrastructure.Decorators.Authorization
 {
-    public class AuthorizationAuthServiceDecorator(IUserRepository repository, IAuthService authService, ICurrentUserService currentUserService, IAuthorizationHandler<User> handler) : AuthorizationDecoratorBase<User>(authService, currentUserService, handler), IAuthService
+    public class AuthorizationAuthServiceDecorator(IUserService service, IAuthService authService, ICurrentUserService currentUserService, IAuthorizationHandler<User> handler) : AuthorizationDecoratorBase<User, UserResponseDto>(service, authService, currentUserService, handler), IAuthService
     {
         public Task<Result<LoginResponseDto>> LoginFirstStep(PreLoginRequestDto loginRequestDto)
         {

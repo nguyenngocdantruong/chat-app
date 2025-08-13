@@ -12,7 +12,5 @@ namespace ChatApp.Application.DTOs.Request
         [EmailAddress(ErrorMessage = "Invalid email address")]
         [Required(ErrorMessage = "Email is required")]
         public string Email { get; set; } = null!;
-        public string? TransactionId { get; set; }
-        public string? Code { get; set; }
     }
 }

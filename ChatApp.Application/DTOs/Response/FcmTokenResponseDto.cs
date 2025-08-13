@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ChatApp.Application.DTOs.Response
 {
-    public class FcmTokenResponseDto
+    public class FcmTokenResponseDto : BaseResponseDto
     {
         public Guid UserId { get; set; }
         public string Token { get; set; } = null!;

@@ -16,7 +16,7 @@ namespace ChatApp.Application.Mapper
         {
             return new ConversationResponseDto()
             {
-                
+                AvatarUrl = entity.AvatarUrl,
             };
         }
 

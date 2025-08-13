@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ChatApp.Application.DTOs.Response
 {
-    public class RegisterResponseDto
+    public class RegisterResponseDto : BaseResponseDto
     {
         public string Username { get; set; } = null!;
         public string Email { get; set; } = null!;
