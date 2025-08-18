@@ -3,50 +3,48 @@ using ChatApp.Domain.Exceptions.Database;
 using ChatApp.Domain.Interfaces;
 using ChatApp.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using ArgumentNullException = ChatApp.Domain.Exceptions.Runtime.ArgumentNullException;
 
 namespace ChatApp.Infrastructure.Repositories
 {
 
-    public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
+    public class GenericRepository<T>(AppDbContext context) : IGenericRepository<T>
+        where T : BaseEntity
     {
-        protected readonly DbSet<T> _dbSet;
+        protected readonly DbSet<T> DbSet = context.Set<T>();
 
-        public GenericRepository(AppDbContext context)
-        {
-            _dbSet = context.Set<T>();
-        }
         public async Task<T?> GetByIdAsync(Guid id)
         {
-            return await _dbSet.FirstOrDefaultAsync(m => m.Guid == id);
+            return await DbSet.FirstOrDefaultAsync(m => m.Guid == id);
         }
 
         public async Task<bool> ExistsAsync(Guid id)
         {
-            return await _dbSet.AnyAsync(e => e.Guid == id);
+            return await DbSet.AnyAsync(e => e.Guid == id);
         }
 
         public void DeleteRange(IEnumerable<T> entities)
         {
-            if (entities == null || !entities.Any())
+            if (entities == null)
             {
                 throw new ArgumentException("Entities collection cannot be null or empty.", nameof(entities));
             }
-            _dbSet.RemoveRange(entities);
+            DbSet.RemoveRange(entities);
         }
 
         public async Task<int> CountAsync(Predicate<T>? predicate = null)
         {
             if (predicate == null)
             {
-                return await _dbSet.CountAsync();
+                return await DbSet.CountAsync();
             }
-            var query = _dbSet.AsQueryable().Where(e => predicate(e));
+            var query = DbSet.AsQueryable().Where(e => predicate(e));
             return await query.CountAsync();
         }
 
         public async Task<T> AddAsync(T entity)
         {
-            var result = await _dbSet.AddAsync(entity);
+            var result = await DbSet.AddAsync(entity);
             return result.Entity;
         }
 
@@ -54,7 +52,7 @@ namespace ChatApp.Infrastructure.Repositories
         {
             try
             {
-                var result = _dbSet.Update(entity);
+                var result = DbSet.Update(entity);
                 return await Task.FromResult(true);
             }
             catch (Exception)
@@ -65,7 +63,7 @@ namespace ChatApp.Infrastructure.Repositories
 
         public async Task<bool> Delete(T entity)
         {
-            var result = _dbSet.Remove(entity);
+            var result = DbSet.Remove(entity);
             if (result == null)
             {
                 throw new DatabaseOperationException($"Can't delete the entity {nameof(entity)}");
@@ -80,12 +78,16 @@ namespace ChatApp.Infrastructure.Repositories
 
         public async Task<IQueryable<T>> GetAllAsync()
         {
-            return await Task.FromResult(_dbSet.AsQueryable());
+            return await Task.FromResult(DbSet.AsQueryable());
         }
 
-        async Task<IEnumerable<T>> IGenericRepository<T>.AddRangeAsync(IEnumerable<T> entities)
+        public async Task<IEnumerable<T>> AddRangeAsync(IEnumerable<T> entities)
         {
-            await _dbSet.AddRangeAsync(entities);
+            if (entities == null)
+            {
+                throw new ArgumentNullException($"Entities collection cannot be null or empty. {nameof(entities)}");
+            }
+            await DbSet.AddRangeAsync(entities);
             return await Task.FromResult(entities);
         }
     }

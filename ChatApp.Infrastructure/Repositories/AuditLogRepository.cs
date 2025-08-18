@@ -11,7 +11,7 @@ namespace ChatApp.Infrastructure.Repositories
         public async Task SaveLogAsync(AuditLog log)
         {
             if (log == null) throw new BadRequestException($"Log null {nameof(log.Guid)}");
-            await _dbSet.AddAsync(log);
+            await DbSet.AddAsync(log);
         }
     }
 }

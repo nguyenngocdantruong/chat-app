@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ChatApp.Domain.Entities;
+using ChatApp.Domain.Enums;
+using ChatApp.Domain.Exceptions.Validate;
 using ChatApp.Domain.Interfaces;
 using ChatApp.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -14,42 +16,84 @@ namespace ChatApp.Infrastructure.Repositories
     {
         public Task<IQueryable<Friend>> GetIncomingRequestAsync(Guid userId)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(DbSet.Where(f => f.AddresseeId == userId && f.Status == FriendStatus.Pending).AsQueryable());
         }
 
         public Task<IQueryable<Friend>> GetOutgoingRequestAsync(Guid userId)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(DbSet.Where(f => f.RequesterId == userId && f.Status == FriendStatus.Pending).AsQueryable());
         }
 
         public Task SendFriendRequestAsync(Guid userId, Guid targetUserId)
         {
-            throw new NotImplementedException();
+            var friendRequest = new Friend
+            {
+                RequesterId = userId,
+                AddresseeId = targetUserId,
+                Status = FriendStatus.Pending
+            };
+            return AddAsync(friendRequest);
         }
 
-        public Task AcceptFriendRequestAsync(Guid requesterId, Guid targetUserId)
+        public async Task AcceptFriendRequestAsync(Guid requesterId, Guid addressUserId)
         {
-            throw new NotImplementedException();
+            var current = await DbSet.FirstOrDefaultAsync(m =>
+                m.RequesterId == requesterId && m.AddresseeId == addressUserId && m.Status == FriendStatus.Pending);
+            if (current != null)
+            {
+                current.Status = FriendStatus.Accepted;
+                await Update(current);
+            }
+            else
+            {
+                throw new BadRequestException("Friend request not found or already accepted.");
+            }
         }
 
-        public Task RemoveFriendRequestAsync(Guid userId)
+        public async Task RemoveFriendRequestAsync(Guid userId)
         {
-            throw new NotImplementedException();
+            var friendRequest = await DbSet.FirstOrDefaultAsync(f => f.RequesterId == userId || f.AddresseeId == userId);
+            if (friendRequest == null)
+            {
+                throw new BadRequestException("Friend request not found.");
+            }
+            DbSet.Remove(friendRequest);
         }
 
-        public Task DeclineFriendRequestAsync(Guid requesterId, Guid targetUserId)
+        public async Task DeclineFriendRequestAsync(Guid requesterId, Guid targetUserId)
         {
-            throw new NotImplementedException();
+            var friendRequest = await DbSet.FirstOrDefaultAsync(f => f.RequesterId == requesterId && f.AddresseeId == targetUserId && f.Status == FriendStatus.Pending);
+            if (friendRequest == null)
+            {
+                throw new BadRequestException("Friend request not found.");
+            }
+            await Delete(friendRequest);
         }
 
-        public Task BlockFriendAsync(Guid requesterId, Guid targetUserId)
+        public async Task BlockFriendAsync(Guid requesterId, Guid targetUserId)
         {
-            throw new NotImplementedException();
+            var existingFriend = await GetFriendBetweenUsersAsync(requesterId, targetUserId);
+            
+            if (existingFriend != null)
+            {
+                existingFriend.Status = FriendStatus.Blocked;
+                await Update(existingFriend);
+            }
+            else
+            {
+                var friendRequest = new Friend
+                {
+                    RequesterId = requesterId,
+                    AddresseeId = targetUserId,
+                    Status = FriendStatus.Blocked
+                };
+                await AddAsync(friendRequest);
+            }
         }
 
         public Task<Friend?> GetFriendBetweenUsersAsync(Guid userAId, Guid userBId)
         {
-            return _dbSet.FirstOrDefaultAsync(f => (f.RequesterId == userAId && f.AddresseeId == userBId) || (f.RequesterId == userBId && f.AddresseeId == userAId));
+            return DbSet.FirstOrDefaultAsync(f => (f.RequesterId == userAId && f.AddresseeId == userBId) || (f.RequesterId == userBId && f.AddresseeId == userAId));
         }
     }
 }

@@ -11,22 +11,22 @@ namespace ChatApp.Infrastructure.Repositories
 
         public async Task<bool> ExistsByEmail(string email)
         {
-            return await _dbSet.AnyAsync(u => u.Email == email);
+            return await DbSet.AnyAsync(u => u.Email == email);
         }
 
         public async Task<bool> ExistsByUsername(string username)
         {
-            return await _dbSet.AnyAsync(u => u.Username == username);
+            return await DbSet.AnyAsync(u => u.Username == username);
         }
 
         public async Task<User?> GetByEmailAsync(string email)
         {
-            return await _dbSet.FirstOrDefaultAsync(u => u.Email == email);
+            return await DbSet.FirstOrDefaultAsync(u => u.Email == email);
         }
 
         public async Task<User?> GetByPhoneNumberAsync(string phoneNumber)
         {
-            return await _dbSet.FirstOrDefaultAsync(u => u.Phone == phoneNumber);
+            return await DbSet.FirstOrDefaultAsync(u => u.Phone == phoneNumber);
         }
 
         public async Task<User?> GetByUID(Guid uid)
@@ -36,7 +36,7 @@ namespace ChatApp.Infrastructure.Repositories
 
         public async Task<User?> GetByUsernameAsync(string username)
         {
-            return await _dbSet.FirstOrDefaultAsync(u => u.Username == username);
+            return await DbSet.FirstOrDefaultAsync(u => u.Username == username);
         }
 
         public async Task<IEnumerable<User>> SearchUsersAsync(string searchTerm, int page = 1, int pageSize = 20)

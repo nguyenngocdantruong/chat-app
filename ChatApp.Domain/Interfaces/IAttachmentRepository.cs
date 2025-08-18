@@ -6,7 +6,6 @@ namespace ChatApp.Domain.Interfaces
     {
         Task SaveMetadataAsync(Attachment attachment);
         Task<Attachment?> GetAttachmentByAttIdAsync(Guid attachmentId);
-        Task<Stream?> GetFileStreamAsync(Guid attachmentId);
         Task DeleteFileMetadataAsync(Guid attachmentId);
     }
 }

@@ -10,7 +10,7 @@ namespace ChatApp.Domain.Interfaces
         //Gửi lời mời kb
         Task SendFriendRequestAsync(Guid userId, Guid targetUserId);
         //Chấp nhận lời mời kb
-        Task AcceptFriendRequestAsync(Guid requesterId, Guid targetUserId);
+        Task AcceptFriendRequestAsync(Guid requesterId, Guid addressUserId);
         // Huỷ kết bạn
         Task RemoveFriendRequestAsync(Guid userId);
         // Từ chối lời mời kb

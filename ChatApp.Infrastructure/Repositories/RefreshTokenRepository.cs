@@ -15,12 +15,12 @@ namespace ChatApp.Infrastructure.Repositories
     {
         public async Task<IEnumerable<RefreshToken>> GetAllTokenActiveByUserIdAsync(Guid userId)
         {
-            return await _dbSet.Where(m => m.UserId == userId && m.IsDeleted == false).ToListAsync();
+            return await DbSet.Where(m => m.UserId == userId && m.IsDeleted == false).ToListAsync();
         }
 
         public async Task RevokeAllTokenByUserIdAsync(Guid userId)
         {
-            var result = await _dbSet.Where(m => m.UserId == userId && m.IsDeleted == false).ToListAsync();
+            var result = await DbSet.Where(m => m.UserId == userId && m.IsDeleted == false).ToListAsync();
             foreach (var refreshToken in result)
             {
                 refreshToken.IsRevoked = true;
